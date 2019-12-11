@@ -7,11 +7,117 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen">
-    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="css/main.css" media="screen">
+
+    <title>CSC | Inicio</title>
 </head>
 <body>
-    
+
+    <!-- header -->
+    <div id="particles-js"></div>
+    <header class="main-header grey lighten-3">
+        <nav class="transparent z-depth-0">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo hide-on-med-and-down">CSC</a>
+                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                        <i class="fas fa-bars fa-2x"></i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#" class="active-link">Inicio</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Concursos</a></li>
+                        <li><a href="#">Iniciar sesión </a></li>
+                        <li><a href="#">Registrate</a></li>
+                    </ul>
+                    <ul class="sidenav" id="mobile-nav">
+                        <h3 class="center">CSC</h3>
+                        <li><div class="divider"></div></li>
+                        <li><a href="#">Inicio <i class="fas fa-home left"></i></a></li>
+                        <li><a href="#">Blog <i class="fas fa-blog left"></i></a></li>
+                        <li><a href="#">Concursos <i class="fas fa-calendar-day left"></i></a></li>
+                        <li><div class="divider"></div></li>
+                        <li><a href="#">Iniciar sesión <i class="fas fa-sign-in-alt left"></i></a></li>
+                        <li><a href="#">Registrate <i class="fas fa-user-plus left"></i> </a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- hero -->
+        <div class="showcase container">
+            <div class="row center">
+                <div class="col s10 offset-s1">
+                    <img src="img/logo.png" width="470px" class="responsive-img" alt="capitulo de sistemas computacionales">
+                    <h2>Bienvenido</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem aut voluptatum molestiae quidem numquam velit. Sint velit sunt suscipit et!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- values -->
+    <section class="section values-section center">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 l3">
+                    <div class="card-panel z-depth-3">
+                        <img src="img/auction.png" height="75px" alt="">
+                        <h5>Honestidad</h5>
+                        <p>
+                            En el capitulo de sistemas e informatica no hay contradicciones ni desacuerdos entre los
+                            pensamientos, palabras o acciones. El ser honesto gana la confianza de los demás.
+                        </p>
+                    </div>
+                </div>
+                <div class="col s12 l3">
+                    <div class="card-panel z-depth-3">
+                        <img src="img/cogwheel.png" height="75px" alt="">
+                        <h5>Compromiso</h5>
+                        <p>
+                            Organizar y llevar a cabo actividades favorables para los estudiantes de la carrera para incentivar,
+                            motivar y completar su formación como estudiante integral. 
+                        </p>
+                    </div>
+                </div>
+                <div class="col s12 l3">
+                    <div class="card-panel z-depth-3">
+                        <img src="img/goal.png" height="75px" alt="">
+                        <h5>Responsabilidad</h5>
+                        <p>
+                            Tiene la virtud de no solo tomar desiciones de manera consciente sino también de asumir las consecuencias
+                            que tengan siempre con actitud de crecimiento.
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="col s12 l3">
+                    <div class="card-panel z-depth-3">
+                        <img src="img/respect.png" height="75px" alt="">
+                        <h5>Respeto</h5>
+                        <p>
+                            Conocer el valor propio y honrar el valor de los demás es la verdadera manera de ganar respeto.
+                            Se reconoce el valor de la sociedad estudiantil.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/particulas.js"></script>
+    <script type="text/javascript">
+    
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+
+    </script>
 </body>
 </html>

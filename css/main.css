@@ -1,0 +1,47 @@
+/* globals */
+
+.active-link{
+    color: #172656;
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5{
+    color: #032539;
+    font-weight: bold;
+}
+
+
+/* header */
+
+nav a,
+nav i{
+    color: #023246 !important;
+}
+
+nav ul a{
+    font-size: 18px !important;
+}
+
+.main-header{
+    min-height: 600px;
+    /* background-color: #d4d4ce; */
+}
+
+@media only screen and (max-width: 500px){
+    .main-header{min-height: 400px;}
+    #particles-js{max-height: 400px;}
+}
+
+
+#particles-js {
+    width:100%;
+    height: 600px;
+    position: absolute;
+}
+
+
+/* values */

@@ -1,3 +1,13 @@
+/.vscode
+
 # materialize
-/css/materialize.min.css
-/js/materialize.min.js
+css/materialize.min.css
+js/materialize.min.js
+
+# particles
+js/particles.min.js
+js/particulas.js
+
+# imagenes
+img/
+
