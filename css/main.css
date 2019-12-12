@@ -45,3 +45,92 @@ nav ul a{
 
 
 /* values */
+
+/* who we are */
+
+.section-who-we-are p{
+    text-align: justify;
+}
+
+.section-who-we-are i{
+    /* color: #FA991C; */
+    /* color: #1C768F; */
+    color: #24B4A5;
+}
+
+/* .section-who-we-are .side-points{
+    margin-left: 40px !important;
+}
+
+.section-who-we-are .side-points h4{
+    margin-bottom: 40px;
+} */
+
+/* @media only screen and (max-width: 600px){
+    
+    .section-who-we-are .side-points{
+        margin-left: 0;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (max-width: 992){
+    
+    .section-who-we-are .side-points{
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 1000){
+    
+    .section-who-we-are .side-points{
+        margin-left: 60px !important;
+    }
+} */
+
+@media (min-width: 1200px){
+
+    .section-who-we-are .side-points{
+        margin-left: 40px !important;
+    }
+
+    .section-who-we-are .side-points .ml{
+    }
+}
+
+
+/* Md 1024px  */
+
+@media (max-width: 1199px) and (min-width: 992px){
+
+    .section-who-we-are .side-points{
+        margin-left: 60px;
+    }
+}
+
+
+/* Sm 768px  */
+
+@media (max-width: 991px) and (min-width: 768px){
+    
+    .section-who-we-are .side-points{
+        margin-left: 0;
+        text-align: center;
+    }
+
+}
+
+
+/* Xs 320px  */
+
+@media (max-width: 767px){
+       
+    .section-who-we-are .side-points{
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+
+
