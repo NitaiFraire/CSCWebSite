@@ -1,5 +1,8 @@
 /* globals */
 
+/* color: #FA991C; */
+/* color: #1C768F; */
+
 .active-link{
     color: #172656;
     font-weight: bold;
@@ -14,6 +17,17 @@ h5{
     font-weight: bold;
 }
 
+.input-field .prefix.active {
+    color: #1C768F;
+}
+
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label,
+.input-field textarea:focus + label{
+    color: #032539 !important;
+}
+
 
 .input-field input[type=email]:focus + label {
     color: #032539;
@@ -25,12 +39,30 @@ h5{
     box-shadow: 0 1px 0 0 #032539 !important;
 }
 
-
-
 .btn{
-    background-color: #032539 !important;
+    background-color: #1C768F !important;
     color: white !important;
 }
+
+.datepicker-date-display {
+	background-color: #032539;
+	color: #fff;
+}
+
+.datepicker-table td.is-selected {
+	background-color: #1C768F;
+	color: #fff;
+}
+
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+	color: #1C768F !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+	color: #1C768F;
+}
+
+.modal { width: 25% !important  } 
 
 /* header */
 
@@ -60,6 +92,22 @@ nav ul a{
     position: absolute;
 }
 
+/* secondary header */
+
+.secondary-header{
+    min-height: 400px;
+}
+
+#particles-js2 {
+    width:100%;
+    height: 465px;
+    position: absolute;
+}
+
+@media only screen and (max-width: 500px){
+    .secondary-header{min-height: 400px;}
+    #particles-js2{max-height: 400px;}
+}
 
 /* values */
 
@@ -72,7 +120,7 @@ nav ul a{
 .section-who-we-are i{
     /* color: #FA991C; */
     /* color: #1C768F; */
-    color: #24B4A5;
+    color: #1C768F;
 }
 
 
@@ -133,5 +181,10 @@ nav ul a{
 /* footer */
 footer{
     background-color: #032539;
+}
+
+footer i{
+    margin-right: 10px;
+    color: #1C768F;
 }
 

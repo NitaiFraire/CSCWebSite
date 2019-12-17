@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen">
     <link type="text/css" rel="stylesheet" href="css/main.css" media="screen">
 
@@ -19,14 +19,14 @@
         <nav class="transparent z-depth-0">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo hide-on-med-and-down">CSC</a>
+                    <a href="index.html" class="brand-logo hide-on-med-and-down">CSC</a>
                     <a href="#" data-target="mobile-nav" class="sidenav-trigger">
                         <i class="fas fa-bars fa-2x"></i>
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="index.html" class="active-link">Inicio</a></li>
                         <li><a href="blog.html">Blog</a></li>
-                        <li><a href="#">Iniciar sesión </a></li>
+                        <li><a href="#login" class="modal-trigger">Iniciar sesión </a></li>
                         <li><a href="signup.html">Registrate</a></li>
                     </ul>
                     <ul class="sidenav" id="mobile-nav">
@@ -41,6 +41,30 @@
                 </div>
             </div>
         </nav>
+
+        <!-- login -->
+        <div id="login" class="modal">
+            <div class="modal-content">
+
+                <form action="">
+                    <div class="input-field">
+                        <i class="fas fa-at prefix"></i>
+                        <input type="email" id="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">lock</i>
+                        <input type="password" id="password">
+                        <label for="password">Contraseña</label>
+                    </div>
+                    <a href="" class="modal-action modal-close btn"><i class="fas fa-sign-in-alt"></i></a>
+                    <div class="modal-footer">
+                        <a href="" class="">Registrate</a>
+                        <a href="" class="">Contraseña olvidada</a>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <!-- hero -->
         <div class="showcase container">
@@ -179,19 +203,19 @@
         <div class="contaier">
             <div class="row">
                 <div class="col s12 m2 offset-m1">
-                    HEXAWARE
+                    <img src="img/hexaware.png" width="300px" alt="">
                 </div>
                 <div class="col s12 m2">
-                    TXM
+                    <img src="img/hexaware.png" width="300px" alt="">
                 </div>
                 <div class="col s12 m2">
-                    JUSTIA
+                    <img src="img/hexaware.png" width="300px" alt="">
                 </div>
                 <div class="col s12 m2">
-                    MAGNA
+                    <img src="img/hexaware.png" width="300px" alt="">
                 </div>
                 <div class="col s12 m2">
-                    CLICK IT
+                    <img src="img/hexaware.png" width="300px" alt="">
                 </div>
             </div>
         </div>
@@ -206,30 +230,34 @@
                    <h3>Contactanos</h3> 
                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, nostrum delectus? Ipsam beatae libero repudiandae.</p>
                    <p>
-                       Instituto tecnologico de saltillo
+                        <i class="fas fa-graduation-cap fa-2x"></i> Instituto tecnologico de saltillo
                    </p>
                    <p>
-                       Saltillo Cohuila México
+                        <i class="fas fa-map-marker-alt fa-2x"></i> Saltillo Cohuila México
                    </p>
                 </div>
                 <div class="col sm 12 m6">
                     <div class="card-panel">
                         <form>
                             <div class="input-field">
-                              <input type="text" id="name">
-                              <label for="name">Nombre</label>
+                                <i class="material-icons prefix">account_circle</i>
+                                <input type="text" id="name">
+                                <label for="name">Nombre</label>
                             </div>
                             <div class="input-field">
-                              <input type="email" id="email">
-                              <label for="email">Email</label>
+                                <i class="fas fa-at prefix"></i>
+                                <input type="email" id="email">
+                                <label for="email">Email</label>
                             </div>
                             <div class="input-field">
-                              <input type="text" id="phone">
-                              <label for="phone">Telefono</label>
+                                <i class="fas fa-phone-alt prefix"></i>
+                                <input type="text" id="phone">
+                                <label for="phone">Telefono</label>
                             </div>
                             <div class="input-field">
-                              <textarea class="materialize-textarea" id="message"></textarea>
-                              <label for="message">Mensaje</label>
+                                <i class="fas fa-comment-dots prefix"></i>
+                                <textarea class="materialize-textarea" id="message"></textarea>
+                                <label for="message">Mensaje</label>
                             </div>
                             <input type="submit" value="Enviar" class="btn">
                         </form>
@@ -239,20 +267,16 @@
         </div>
     </section>
     <!-- contact -->
-
+    
     <!-- footer -->
     <footer class="section white-text center">
-        <i>Facebook</i>
-        <i>Instagram</i>
+        <i class="fab fa-facebook fa-3x"></i>
+        <i class="fab fa-instagram fa-3x"></i>
         <p>Capítulo de sistemas computacionales &copy; 2020</p>
     </footer>
     <!-- footer -->
 
-
-
-
-
-    <!-- <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="js/particulas.js"></script>
@@ -264,6 +288,9 @@
 
             var boxed = document.querySelectorAll('.materialboxed');
             var initBoxed = M.Materialbox.init(boxed);
+
+            var loginModal = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(loginModal);
         });
 
     </script>
