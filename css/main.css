@@ -15,6 +15,23 @@ h5{
 }
 
 
+.input-field input[type=email]:focus + label {
+    color: #032539;
+}
+
+.input-field input:focus,
+.input-field textarea:focus {
+    border-bottom: 1px solid #032539 !important;
+    box-shadow: 0 1px 0 0 #032539 !important;
+}
+
+
+
+.btn{
+    background-color: #032539 !important;
+    color: white !important;
+}
+
 /* header */
 
 nav a,
@@ -58,44 +75,11 @@ nav ul a{
     color: #24B4A5;
 }
 
-/* .section-who-we-are .side-points{
-    margin-left: 40px !important;
-}
-
-.section-who-we-are .side-points h4{
-    margin-bottom: 40px;
-} */
-
-/* @media only screen and (max-width: 600px){
-    
-    .section-who-we-are .side-points{
-        margin-left: 0;
-        text-align: center;
-    }
-    
-}
-
-@media only screen and (max-width: 992){
-    
-    .section-who-we-are .side-points{
-        margin-left: 0;
-    }
-}
-
-@media only screen and (max-width: 1000){
-    
-    .section-who-we-are .side-points{
-        margin-left: 60px !important;
-    }
-} */
 
 @media (min-width: 1200px){
 
     .section-who-we-are .side-points{
         margin-left: 40px !important;
-    }
-
-    .section-who-we-are .side-points .ml{
     }
 }
 
@@ -133,4 +117,21 @@ nav ul a{
 }
 
 
+/* partners */
+
+.partners-section{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* contact */
+
+.contact-section{
+    margin-top: 5rem;
+}
+
+/* footer */
+footer{
+    background-color: #032539;
+}
 
