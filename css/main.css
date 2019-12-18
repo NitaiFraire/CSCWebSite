@@ -4,7 +4,7 @@
 /* color: #1C768F; */
 
 .active-link{
-    color: #172656;
+    color: #032539;
     font-weight: bold;
 }
 
@@ -185,6 +185,64 @@ footer{
 
 footer i{
     margin-right: 10px;
+    /* color: #1C768F; */
+        /* color: #FA991C; */
+}
+
+/* blog */
+
+.blog-categories i{
+    margin-right: 30px;
+}
+
+.blog-categories a{
+    cursor: pointer;
+    color: #032539 !important;
+}
+
+.blog-categories a:hover{
+    background-color: #eeeeee;
+}
+
+.blog-categories .active{
+    background-color: #1C768F !important;
+    /* background-color: #032539 !important; */
+    color: white !important;
+}
+
+.post-title{
+    margin-top: 0;
+}
+
+.post-read-more{
     color: #1C768F;
 }
 
+.pagination{
+    margin-bottom: 50px;
+}
+
+.pagination{
+    color: #032539 !important;
+}
+
+.pagination .active{
+    background-color: #1C768F !important;
+}
+
+.post-image img{
+    margin-right: 50px;
+}
+
+.post-title{
+    font-size: 20px;
+}
+
+.post-title:hover{
+    font-size: 20px;
+    color: #1C768F;
+}
+
+.post-exerpt{
+    font-size: 14px;
+}
