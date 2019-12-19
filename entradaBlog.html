@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="css/main.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="css/prism.css">
+
+    <title>CSC | Blog</title>
+</head>
+<body>
+
+    <!-- header -->
+    <div id="particles-js2"></div>
+    <header class="seondary-header grey lighten-3">
+        <nav class="transparent z-depth-0">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="brand-logo hide-on-med-and-down">CSC</a>
+                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                        <i class="fas fa-bars fa-2x"></i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="blog.html" class="active-link">Blog</a></li>
+                        <li><a href="#">Iniciar sesión </a></li>
+                        <li><a href="signup.html">Registrate</a></li>
+                    </ul>
+                    <ul class="sidenav" id="mobile-nav">
+                        <h3 class="center">CSC</h3>
+                        <li><div class="divider"></div></li>
+                        <li><a href="index.html">Inicio <i class="fas fa-home left"></i></a></li>
+                        <li><a href="blog.html">Blog <i class="fas fa-blog left"></i></a></li>
+                        <li><div class="divider"></div></li>
+                        <li><a href="#">Iniciar sesión <i class="fas fa-sign-in-alt left"></i></a></li>
+                        <li><a href="signup.html">Registrate <i class="fas fa-user-plus left"></i> </a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- hero -->
+        <div class="showcase container">
+            <div class="row center">
+                <div class="col s10 offset-s1">
+                    <img src="img/logo.png" width="370px" class="responsive-img" alt="capitulo de sistemas computacionales">
+                    <h3>How To Use *args and **kwargs In Python</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- post content -->
+    <section class="section post-content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m10 offset-m1">
+                    <div class="post-header center" >
+                        <img src="img/pp.jpg" class="circle" width="90px">
+                        <p id="published-by"><strong>Por:</strong> Nitai Fraire</p>
+                        <div class="row user-social-networks">
+                            <a href=""><i class="fab fa-gitlab fa-3x"></i></a>
+                            <a href=""><i class="fab fa-github-alt fa-3x"></i></a>
+                            <a href=""><i class="fab fa-pinterest fa-3x"></i></a>
+                        </div>
+                        <div class="row post-details">
+                            <i class="fas fa-eye"></i> 1000
+                            <i class="fas fa-calendar-day"></i> 17/01/20
+                        </div>
+                        <img src="img/testCard2.png" class="">
+                    </div>
+                    <div class="post-content">
+                        <p>Functions are reusable a block of codes performing a specific task, they make the program more effective and modular.</p>
+                        <p>While defining a function in Python, we also specify the parameters it can accept which we later pass as arguments in function call.</p>
+                        <p>However, there might be situations when you are not aware of the total number of arguments required or you suspect that later on, the function may need additional arguments.</p>
+                        <p>We can use the special syntax <strong>* args</strong> and <strong>**kwargs</strong> within a function definition in order to pass any number of arguments to a function. In this article, we guide you on how to use *args and **kwars efficiently in Python.</p>
+
+                        <h4>*args In Python</h4>
+                        <p>In Python, *args is used to pass an arbitrary number of arguments to a function. It’s worth mentioning that the single asterisk( * ) is the most important element, the word arg is just a naming convention we can name it anything it will work as long as we have a ( * ) before it.</p>
+                        <p>This could be better understood by the following example, Let’s create a function which can add numbers,</p>
+
+                        
+                        <pre><code class="language-python">def total_sum(x, y):
+    sum = x + y
+    print(sum)
+
+    total_sum(3,4)</code></pre>
+                        
+                        <p>This simple function adds the two number which we pass in the function call. But what if we want to add three numbers?</p>
+                        <p>fortunately passing three arguments in function call will lead to an error.</p>
+                        <pre><code class="language-python">def total_sum(*args):
+    sum = 0
+    for num in args:
+        sum += num
+    print("Sum :", sum)
+
+
+total_sum(3, 4)
+total_sum(3, 6, 7, 8,2)
+total_sum(3, 7, 8,2)
+total_sum(3, 8, 9)</code></pre>
+                        <p><strong>Output:</strong></p>
+                        <pre><code class="language-python">TypeError: total_sum() takes 2 positional arguments but 3 were given</code></pre>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row center share">
+                <a href=""><i class="fab fa-facebook-square fa-4x"></i></a>
+                <a href=""><i class="fab fa-twitter-square fa-4x"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- related post -->
+    <section class="section related-post-section">
+        <div class="container center">
+            <h5 class="">Post relacionados</h5>
+            <div class="row">
+                <div class="col m1  hide-on-small-only"></div>
+                <div class="col s12 m10 offset-m1">
+                    <div class="row">
+                        <div class="col s12 m3">
+                            <a href="">
+                                <img src="img/testCard.png" class="responsive-img">
+                                <p>Python Script To Convert A Docx File To Text File</p>
+                            </a> 
+                        </div>
+                        <div class="col s12 m3">
+                           <img src="img/testCard2.png" class="responsive-img"> 
+                           <a href="">
+                                <p>Text To Speech Conversion Using Python</p>
+                           </a>
+                        </div>
+                        <div class="col s12 m3">
+                            <img src="img/testCard.png" class="responsive-img">
+                            <a href="">
+                                <p>Python Script To Check If A Directory Exists, If Not, Create It</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+    <footer class="section white-text center">
+        <i class="fab fa-facebook fa-2x"></i>
+        <i class="fab fa-instagram fa-2x"></i>
+        <p>Capítulo de sistemas computacionales &copy; 2020</p>
+    </footer>
+    <!-- footer -->
+
+    <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/particulas2.js"></script>
+    <script src="js/prism.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var sideNav = document.querySelectorAll('.sidenav ');
+            var initSideNav = M.Sidenav.init(sideNav);
+
+            var boxed = document.querySelectorAll('.materialboxed');
+            var initBoxed = M.Materialbox.init(boxed);
+        });
+    </script>
+    <script language="javascript" type="text/javascript">
+        SyntaxHighlighter.config.bloggerMode = true;
+        SyntaxHighlighter.all();
+    </script>
+</body>
+</html>

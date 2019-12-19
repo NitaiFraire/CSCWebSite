@@ -246,3 +246,36 @@ footer i{
 .post-exerpt{
     font-size: 14px;
 }
+
+/* post detail */
+
+#published-by{
+    font-weight: bold;
+    color: #032539;
+}
+
+.user-social-networks a,
+.share a{
+    transition: all ease-in .2s;
+    color: #032539;
+    margin-right: 6px;
+}
+
+.user-social-networks a:hover,
+.share a:hover{
+    color: #1C768F;
+}
+
+.post-details i{
+    margin-left: 13px;
+    color: #032539;
+}
+
+.related-post-section a{
+    color: #032539;
+    font-weight: bold;
+}
+
+.related-post-section a:hover{
+    color: #1C768F;
+}
