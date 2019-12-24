@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="css/main.css" media="screen">
     <link type="text/css" rel="stylesheet" href="css/prism.css">
 
-    <title>CSC | Blog</title>
+    <title>CSC | How to use *args and **kwargs in python</title>
 </head>
 <body>
 
@@ -26,14 +26,16 @@
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="index.html">Inicio</a></li>
+                        <li><a href="events.html">Eventos</a></li>
                         <li><a href="blog.html" class="active-link">Blog</a></li>
-                        <li><a href="#">Iniciar sesión </a></li>
+                        <li><a href="#login" class="modal-trigger">Iniciar sesión </a></li>
                         <li><a href="signup.html">Registrate</a></li>
                     </ul>
                     <ul class="sidenav" id="mobile-nav">
                         <h3 class="center">CSC</h3>
                         <li><div class="divider"></div></li>
                         <li><a href="index.html">Inicio <i class="fas fa-home left"></i></a></li>
+                        <li><a href="events.html">Eventos <i class="fas fa-calendar-day left"></i></a></li>
                         <li><a href="blog.html">Blog <i class="fas fa-blog left"></i></a></li>
                         <li><div class="divider"></div></li>
                         <li><a href="#">Iniciar sesión <i class="fas fa-sign-in-alt left"></i></a></li>
@@ -60,7 +62,7 @@
             <div class="row">
                 <div class="col s12 m10 offset-m1">
                     <div class="post-header center" >
-                        <img src="img/pp.jpg" class="circle" width="90px">
+                        <img src="img/pp3.jpg" class="circle" width="90px">
                         <p id="published-by"><strong>Por:</strong> Nitai Fraire</p>
                         <div class="row user-social-networks">
                             <a href=""><i class="fab fa-gitlab fa-3x"></i></a>
@@ -71,7 +73,7 @@
                             <i class="fas fa-eye"></i> 1000
                             <i class="fas fa-calendar-day"></i> 17/01/20
                         </div>
-                        <img src="img/testCard2.png" class="">
+                        <img src="img/testCard2.png" class="responsive-img">
                     </div>
                     <div class="post-content">
                         <p>Functions are reusable a block of codes performing a specific task, they make the program more effective and modular.</p>
@@ -110,8 +112,8 @@ total_sum(3, 8, 9)</code></pre>
                 </div>
             </div>
             <div class="row center share">
-                <a href=""><i class="fab fa-facebook-square fa-4x"></i></a>
-                <a href=""><i class="fab fa-twitter-square fa-4x"></i></a>
+                <a href="" class="tooltipped" data-position="left" data-tooltip="Compartir en Facebook"><i class="fab fa-facebook-square fa-3x"></i></a>
+                <a href="" class="tooltipped" data-position="right" data-tooltip="Compartir en Twitter"><i class="fab fa-twitter-square fa-3x"></i></a>
             </div>
         </div>
     </section>
@@ -131,14 +133,14 @@ total_sum(3, 8, 9)</code></pre>
                             </a> 
                         </div>
                         <div class="col s12 m3">
-                           <img src="img/testCard2.png" class="responsive-img"> 
-                           <a href="">
+                            <a href="">
+                                <img src="img/testCard2.png" class="responsive-img"> 
                                 <p>Text To Speech Conversion Using Python</p>
                            </a>
                         </div>
                         <div class="col s12 m3">
-                            <img src="img/testCard.png" class="responsive-img">
                             <a href="">
+                                <img src="img/testCard.png" class="responsive-img">
                                 <p>Python Script To Check If A Directory Exists, If Not, Create It</p>
                             </a>
                         </div>
@@ -169,6 +171,9 @@ total_sum(3, 8, 9)</code></pre>
 
             var boxed = document.querySelectorAll('.materialboxed');
             var initBoxed = M.Materialbox.init(boxed);
+
+            var tooltip = document.querySelectorAll('.tooltipped');
+            var initTooltip = M.Tooltip.init(tooltip);
         });
     </script>
     <script language="javascript" type="text/javascript">

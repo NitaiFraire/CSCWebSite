@@ -25,14 +25,16 @@
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="index.html">Inicio</a></li>
+                        <li><a href="events.html">Eventos</a></li>
                         <li><a href="blog.html">Blog</a></li>
-                        <li><a href="#">Iniciar sesión </a></li>
+                        <li><a href="#login" class="modal-trigger">Iniciar sesión </a></li>
                         <li><a href="signup.html" class="active-link">Registrate</a></li>
                     </ul>
                     <ul class="sidenav" id="mobile-nav">
                         <h3 class="center">CSC</h3>
                         <li><div class="divider"></div></li>
                         <li><a href="index.html">Inicio <i class="fas fa-home left"></i></a></li>
+                        <li><a href="events.html">Eventos <i class="fas fa-calendar-day left"></i></a></li>
                         <li><a href="blog.html">Blog <i class="fas fa-blog left"></i></a></li>
                         <li><div class="divider"></div></li>
                         <li><a href="#">Iniciar sesión <i class="fas fa-sign-in-alt left"></i></a></li>
@@ -69,17 +71,23 @@
                     <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-2">
                         <form action="">
                             <div class="row">
-                                <div class="col s12 m6">
+                                <div class="col s12 m4">
                                     <div class="input-field">
                                         <i class="material-icons prefix">account_circle</i>
                                         <input type="text" id="name">
                                         <label for="name">Nombre</label>
                                     </div>
                                 </div>
-                                <div class="col s12 m6">
+                                <div class="col s12 m4">
                                     <div class="input-field">
-                                        <input type="text" id="firstName">
-                                        <label for="firstName">Apellidos</label>
+                                        <input type="text" id="firstLastName">
+                                        <label for="firstLastName">Apellido Paterno</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m4">
+                                    <div class="input-field">
+                                        <input type="text" id="secondLastName">
+                                        <label for="secondLastName">Apellido Materno</label>
                                     </div>
                                 </div>
                             </div>

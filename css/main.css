@@ -178,6 +178,10 @@ nav ul a{
     margin-top: 5rem;
 }
 
+.contact-section i{
+    color: #032539;
+}
+
 /* footer */
 footer{
     background-color: #032539;
@@ -214,7 +218,11 @@ footer i{
     margin-top: 0;
 }
 
-.post-read-more{
+.post-item a{
+    color: #032539;
+}
+
+.post-item a:hover{
     color: #1C768F;
 }
 
@@ -236,11 +244,6 @@ footer i{
 
 .post-title{
     font-size: 20px;
-}
-
-.post-title:hover{
-    font-size: 20px;
-    color: #1C768F;
 }
 
 .post-exerpt{
@@ -278,4 +281,25 @@ footer i{
 
 .related-post-section a:hover{
     color: #1C768F;
+}
+
+/* .post-content-section .container{
+    background-color: #eeeeee;
+} */
+
+/* eventos */
+
+.card-content i:nth-child(2){
+    margin-left: 10px;
+}
+
+.card-content i{
+    color: #1C768F;
+    margin-bottom: 20px;
+}
+
+.event-details-section i{
+    color: #1C768F;
+    margin-right: 10px;
+    margin-bottom: 5px;
 }
