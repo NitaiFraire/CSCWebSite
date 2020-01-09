@@ -3,6 +3,11 @@
 /* color: #FA991C; */
 /* color: #1C768F; */
 
+::selection {
+    background: #1C768F; /* WebKit/Blink Browsers */
+    color: #fff;
+}
+
 .active-link{
     color: #032539;
     font-weight: bold;
@@ -14,7 +19,11 @@ h3,
 h4,
 h5{
     color: #032539;
-    font-weight: bold;
+    font-family: 'Righteous', cursive;
+}
+
+p{
+    font-family: 'Saira Semi Condensed', sans-serif;
 }
 
 .input-field .prefix.active {
