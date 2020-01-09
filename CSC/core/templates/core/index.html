@@ -1,0 +1,178 @@
+{% extends 'core/base.html' %}
+{% block title %} CSC Inicio {% endblock title %}
+{% block content %}
+{% load static %}
+
+<section class="section values-section center">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 l4">
+                <div class="card-panel z-depth-3">
+                    <img src="{% static 'core/img/cogwheel.png' %}" height="75px">
+                    <h5>Compromiso</h5>
+                    <p>
+                        Organización de actividades favorables para los estudiantes de la carrera para incentivar,
+                        motivar y completar su formación como estudiante integral. 
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 l4">
+                <div class="card-panel z-depth-3">
+                    <img src="{% static 'core/img/goal.png' %}" height="75px">
+                    <h5>Responsabilidad</h5>
+                    <p>
+                        Virtud de no solo tomar desiciones de manera consciente sino también de asumir las consecuencias
+                        que tengan siempre con actitud de crecimiento.
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 l4">
+                <div class="card-panel z-depth-3">
+                    <img src="{% static 'core/img/respect.png' %}" height="75px">
+                    <h5>Respeto</h5>
+                    <p>
+                        Conocer el valor propio y honrar el valor de los demás es la verdadera manera de ganar respeto.
+                        Se reconoce el valor de la sociedad estudiantil.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-who-we-are">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 l5">
+                <img src="{% static 'core/img/scsteam.jpeg' %}" class="responsive-img z-depth-2">
+            </div>
+            <div class="col s12 l6 side-points">
+                <h4>Lorem ipsum dolor</h4>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <i class="fas fa-tachometer-alt fa-2x"></i>
+                        <h5>Trabajamos rapido</h5>
+                        <p>Find a better way to break through. Innovate boldly, and intelligently.</p>
+                    </div>
+                    <div class="col s12 m6">
+                        <i class="fas fa-users fa-2x"></i>
+                        <h5>Nuestra comunidad</h5>
+                        <p>Find a better way to break through. Innovate boldly, and intelligently.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <i class="fas fa-laptop-code fa-2x"></i>
+                        <h5>Ideas creativas</h5>
+                        <p>Find a better way to break through. Innovate boldly, and intelligently.</p>
+                    </div>
+                    <div class="col s12 m6">
+                        <i class="fas fa-puzzle-piece fa-2x"></i>
+                        <h5>Trabajamos en el resultado</h5>
+                        <p>Our responsibility is to provide you with the right solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section gallery-section grey lighten-3">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m3">
+                <img class="materialboxed responsive-img" src="{% static 'core/img/gallery1.jpeg' %}" alt="">
+            </div>
+            <div class="col s12 m3">
+                <img class="materialboxed responsive-img" src="{% static 'core/img/gallery5.jpeg' %}" alt="">
+            </div>
+            <div class="col s12 m3">
+                <img class="materialboxed responsive-img" src="{% static 'core/img/gallery3.jpeg' %}" alt="">
+            </div>
+            <div class="col s12 m3">
+                <img class="materialboxed responsive-img" src="{% static 'core/img/gallery6.jpeg' %}" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m3">
+                <img class="materialboxed responsive-img" src="{% static 'core/img/gallery10.jpg' %}" alt="">
+            </div>
+            <div class="col s12 m3">
+                <img class="materialboxed responsive-img" src="{% static 'core/img/gallery2.jpeg' %}" alt="">
+            </div>
+            <div class="col s12 m3">
+                <img class="materialboxed responsive-img" src="{% static 'core/img/gallery9.jpg' %}" alt="">
+            </div>
+            <div class="col s12 m3">
+                <img class="materialboxed responsive-img" src="{% static 'core/img/gallery8.jpeg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section partners-section grey lighten-3 center">
+    <div class="contaier">
+        <div class="row">
+            <div class="col s12 m2 offset-m1">
+                <img src="{% static 'core/img/hexaware.png' %}" width="300px" alt="">
+            </div>
+            <div class="col s12 m2">
+                <img src="{% static 'core/img/hexaware.png' %}" width="300px" alt="">
+            </div>
+            <div class="col s12 m2">
+                <img src="{% static 'core/img/hexaware.png' %}" width="300px" alt="">
+            </div>
+            <div class="col s12 m2">
+                <img src="{% static 'core/img/hexaware.png' %}" width="300px" alt="">
+            </div>
+            <div class="col s12 m2">
+                <img src="{% static 'core/img/hexaware.png' %}" width="300px" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col sm12 m6">
+                <h3>Contactanos</h3> 
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, nostrum delectus? Ipsam beatae libero repudiandae.</p>
+                <p>
+                    <i class="fas fa-graduation-cap fa-2x"></i> Instituto tecnologico de saltillo
+                </p>
+                <p>
+                    <i class="fas fa-map-marker-alt fa-2x"></i> Saltillo Cohuila México
+                </p>
+            </div>
+            <div class="col sm 12 m6">
+                <div class="card-panel">
+                    <form>
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input type="text" id="name">
+                            <label for="name">Nombre</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-at prefix"></i>
+                            <input type="email" id="email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-phone-alt prefix"></i>
+                            <input type="text" id="phone">
+                            <label for="phone">Telefono</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-comment-dots prefix"></i>
+                            <textarea class="materialize-textarea" id="message"></textarea>
+                            <label for="message">Mensaje</label>
+                        </div>
+                        <input type="submit" value="Enviar" class="btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
