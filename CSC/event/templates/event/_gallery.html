@@ -1,0 +1,72 @@
+<section class="section gallery-section grey lighten-3">
+    <div class="container">
+        {% for photo in gallery %}
+            <div class="row">
+                {% if photo.photo1 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo1 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo2 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo2 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo3 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo3 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo4 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo4 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                {% if photo.photo5 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo5 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo6 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo6 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo7 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo7 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo8 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo8 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                {% if photo.photo9 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo9 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo10 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo10 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo11 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo11 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+                {% if photo.photo12 != "" %}
+                    <div class="col s6 m3">
+                        <img src="media/{{ photo.photo12 }}" class="materialboxed responsive-img">
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</section>
