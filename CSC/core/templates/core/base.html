@@ -16,7 +16,11 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>    
-    <div id="particles-js"></div>
+    {% if request.path == '/' %}
+        <div id="particles-js"></div>
+    {% else %}
+        <div id="particles-js2"></div>
+    {% endif %}
     <header class="main-header grey lighten-3">
         <nav class="transparent z-depth-0">
             <div class="container">
@@ -94,7 +98,12 @@
     <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script>
     <script src="{% static 'core/js/materialize.min.js' %}" type="text/javascript"></script>
     <script src="{% static 'core/js/particles.min.js' %}"></script>
-    <script src="{% static 'core/js/particulas.js' %}"></script>
+    {% if request.path == '/' %}
+        <script src="{% static 'core/js/particulas.js' %}"></script>
+    {% else %}
+        <script src="{% static 'core/js/particulas2.js' %}"></script>
+    {% endif %}
+    
     <script type="text/javascript">
     
         document.addEventListener('DOMContentLoaded', function() {
