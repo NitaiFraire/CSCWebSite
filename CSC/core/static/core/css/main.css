@@ -3,6 +3,12 @@
 /* color: #FA991C; */
 /* color: #1C768F; */
 
+.alert-custom{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 5px;
+}
+
 ::selection {
     background: #1C768F; /* WebKit/Blink Browsers */
     color: #fff;
@@ -190,6 +196,16 @@ nav ul a{
 .contact-section i{
     color: #032539;
 }
+
+
+.has-error i{
+    color: #e57373;
+}
+
+.errors small{
+    color: #e57373!important;
+}
+
 
 /* footer */
 footer{

@@ -12,7 +12,6 @@
 
     <link type="text/css" rel="stylesheet" href="{% static 'core/css/materialize.min.css' %}" media="screen">
     <link type="text/css" rel="stylesheet" href="{% static 'core/css/main.css' %}" media="screen">
-
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>    
@@ -21,16 +20,16 @@
     {% else %}
         <div id="particles-js2"></div>
     {% endif %}
-    <header class="main-header grey lighten-3">
+    <header class="main-header grey lighten-3" id="main-header">
         <nav class="transparent z-depth-0">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="index.html" class="brand-logo hide-on-med-and-down">CSC</a>
+                    <a href="{% url 'index' %}" class="brand-logo hide-on-med-and-down">CSC</a>
                     <a href="#" data-target="mobile-nav" class="sidenav-trigger">
                         <i class="fas fa-bars fa-2x"></i>
                     </a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="index.html" class="active-link">Inicio</a></li>
+                        <li><a href="{% url 'index' %}" class="active-link">Inicio</a></li>
                         <li><a href="events.html">Eventos</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="#login" class="modal-trigger">Iniciar sesión </a></li>
@@ -39,7 +38,7 @@
                     <ul class="sidenav" id="mobile-nav">
                         <h3 class="center">CSC</h3>
                         <li><div class="divider"></div></li>
-                        <li><a href="index.html">Inicio <i class="fas fa-home left"></i></a></li>
+                        <li><a href="{% url 'index' %}">Inicio <i class="fas fa-home left"></i></a></li>
                         <li><a href="events.html">Eventos <i class="fas fa-calendar-day left"></i></a></li>
                         <li><a href="blog.html">Blog <i class="fas fa-blog left"></i></a></li>
                         <li><div class="divider"></div></li>
@@ -97,6 +96,7 @@
 
     <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script>
     <script src="{% static 'core/js/materialize.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/js/main.js' %}"></script>
     <script src="{% static 'core/js/particles.min.js' %}"></script>
     {% if request.path == '/' %}
         <script src="{% static 'core/js/particulas.js' %}"></script>
@@ -116,7 +116,7 @@
             var loginModal = document.querySelectorAll('.modal');
             var instances = M.Modal.init(loginModal);
         });
-
+            
     </script>
 </body>
 </html>

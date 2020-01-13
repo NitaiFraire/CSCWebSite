@@ -115,29 +115,26 @@
                 </p>
             </div>
             <div class="col sm 12 m6">
-                <div class="card-panel">
-                    <form>
-                        <div class="input-field">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input type="text" id="name">
-                            <label for="name">Nombre</label>
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-at prefix"></i>
-                            <input type="email" id="email">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-phone-alt prefix"></i>
-                            <input type="text" id="phone">
-                            <label for="phone">Telefono</label>
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-comment-dots prefix"></i>
-                            <textarea class="materialize-textarea" id="message"></textarea>
-                            <label for="message">Mensaje</label>
-                        </div>
-                        <input type="submit" value="Enviar" class="btn">
+                <div class="card-panel" id="contact-form">
+                {% if 'ok' in request.GET %}
+                    <span class="alert-success">
+                        {% comment %} Mensaje enviado correctamente, nos contactaremos contigo lo antes posible. {% endcomment %}
+                    </span>
+                {% elif 'error' in request.GET %}
+                    <span class="alert-error">
+                        {% comment %} No se pudo enviar tu mensaje, intentalo de nuevo. {% endcomment %}
+                    </span>
+                {% endif %}
+                    {% load material_form %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% form %}
+                            {% part form.name prefix %} <i class="material-icons prefix">account_circle</i> {% endpart %}
+                            {% part form.email prefix %} <i class="fas fa-at prefix"></i> {% endpart %}
+                            {% part form.phone prefix %} <i class="fas fa-phone-alt prefix"></i> {% endpart %}
+                            {% part form.message prefix %} <i class="fas fa-comment-dots prefix"></i> {% endpart %}
+                        {% endform %}
+                        <button type="submit" class="btn">Submit</button>
                     </form>
                 </div>
             </div>

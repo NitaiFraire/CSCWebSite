@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'material',
     'core.apps.CoreConfig',
     'event',
 ]
@@ -70,7 +71,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'Arya.stark420',
         'HOST': 'localhost',
-        'POST': ''
+        'PORT': ''
     }
 }
 
@@ -114,3 +115,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'b524379365ad1b'
+EMAIL_HOST_PASSWORD = '50273ca25419fe'
+EMAIL_PORT = '2525'
