@@ -4,7 +4,7 @@ from .models import EventType, EventDetail, Gallery
 
 class EventDetailAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'hour', 'start_date', 'end_date')
-    readonly_fields = ('created', 'updated')
+    readonly_fields = ('slug', 'created', 'updated')
 
 class EventTypeAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')

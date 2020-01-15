@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+{% block title %} CSC | {{ event.name }} {% endblock %}
+
+{% block showcase %}
+    <h2>{{ event.name }}</h2>
+{% endblock %}
+
+{% block content %}
+    <section class="section event-details-section">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8">
+                    <img src="{{ event.photo.url }}" class="responsive-img">
+                </div>
+                <div class="col s12 m4">
+                    <h5>Fecha y Hora </h5>
+                    {% if event.start_date < current_time %}
+                        <i class="material-icons">check</i> Evento finalizado
+                    {% else %}
+                        {% if event.end_date == event.start_date %}
+                            <i class="fas fa-calendar-day"></i> {{ event.start_date | date:'l d/M/y' }}
+                        {% else %}
+                            <h5>Del</h5>
+                            <i class="fas fa-calendar-day"></i> 
+                            <strong>{{ event.start_date | date:'l d/M/y' }}</strong>
+                            al
+                            <strong>{{ event.end_date | date:'l d/M/y' }}</strong>
+                        {% endif %}
+                    {% endif %}
+                    <br>
+                    <i class="fas fa-clock"></i> {{ event.hour }}
+
+                    <hr>
+
+                    <h5>Lugar</h5>
+                    <i class="fas fa-map-marker"></i> {{ event.place }}
+                    
+                    <hr>
+                    
+                    <h5>Cupo</h5>
+                    <i class="fas fa-users"></i> {{ event.capacity }}
+                    {% comment %} <br> {% endcomment %}
+                    {% comment %} <i class="fas fa-user"></i> 32 (Restantes) {% endcomment %}
+                    <br>
+                    <i class="fas fa-money-bill"></i> Costo: {% if event.price != 0 %} ${{ event.price }} {% else %} Gratuito {% endif %}  
+
+                    <p>Debes <strong><a href="">iniciar sesión</a></strong> antes de registrarte en el evento</p>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    {{ event.description }}
+                </p>
+            </div>
+        </div>
+    </section>
+    {% if gallery %}
+        {% include 'event/_gallery.html' %}
+    {% endif %}
+{% endblock %}

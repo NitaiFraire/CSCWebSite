@@ -17,7 +17,7 @@ import shutil
 
 def event_banner(instance, filename):
     try:
-        old_instance = EventDetail.objects.get(pk=instance.pk)
+        old_instance = Detail.objects.get(pk=instance.pk)
         old_instance.photo.delete()
     finally:
         return f'events/{instance.slug}/banner/{filename}'
@@ -34,7 +34,7 @@ def update_gallery(photo):
 #############[ MODELS ]#############
 ####################################
 
-class EventType(models.Model):  
+class Type(models.Model):  
     name     = models.CharField(max_length=30, blank=False, unique=True)
     created  = models.DateTimeField(auto_now_add=True)
     updated  = models.DateTimeField(auto_now=True)
@@ -46,10 +46,9 @@ class EventType(models.Model):
         verbose_name = 'tipo de evento'
         ordering = ['name']
     
-class EventDetail(models.Model):
-    event_type_id   = models.ForeignKey(EventType,
+class Detail(models.Model):
+    event_type_id   = models.ForeignKey(Type,
                             on_delete=models.CASCADE,
-                            related_name="type",
                             verbose_name="tipo de evento")
     name            = models.CharField(max_length=30, blank=False, unique=True,
                                        verbose_name="nombre")
@@ -71,6 +70,11 @@ class EventDetail(models.Model):
     created         = models.DateTimeField(auto_now_add=True)
     updated         = models.DateTimeField(auto_now=True)
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args,**kwargs)
+
+
     def __str__(self):
         return self.name
 
@@ -87,22 +91,20 @@ class EventDetail(models.Model):
         ]
 
 class Gallery(models.Model):
-    event_id    = models.ForeignKey(EventDetail,
-                                    on_delete=models.CASCADE,
-                                    related_name="photos")
+    event_id    = models.OneToOneField(Detail, on_delete=models.CASCADE, related_name="event_gallery")
     name        = models.CharField(max_length=30, blank=True)
-    photo1      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 1") 
-    photo2      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 2") 
-    photo3      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 3") 
-    photo4      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 4") 
-    photo5      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 5") 
-    photo6      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 6") 
-    photo7      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 7") 
-    photo8      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 8") 
-    photo9      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 9") 
-    photo10     = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 10") 
-    photo11     = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 11") 
-    photo12     = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 12") 
+    photo1      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 1") 
+    photo2      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 2") 
+    photo3      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 3") 
+    photo4      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 4") 
+    photo5      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 5") 
+    photo6      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 6") 
+    photo7      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 7") 
+    photo8      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 8") 
+    photo9      = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 9") 
+    photo10     = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 10") 
+    photo11     = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 11") 
+    photo12     = models.ImageField(upload_to=event_gallery, blank=True, verbose_name="foto 12") 
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
 
@@ -119,7 +121,7 @@ class Gallery(models.Model):
 #############[ SIGNALS ]#############
 #####################################
 
-@receiver(post_delete, sender=EventDetail)
+@receiver(post_delete, sender=Detail)
 def delete_event_banner(sender, instance, *args, **kwargs):
     shutil.rmtree(os.path.join(settings.MEDIA_ROOT, f'events/{instance.slug}/banner/'))
     if not os.path.exists(os.path.join(settings.MEDIA_ROOT, f'events/{instance.slug}/gallery/')):

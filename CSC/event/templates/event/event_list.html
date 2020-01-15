@@ -1,0 +1,79 @@
+{% extends 'core/base.html' %}
+{% block title %} CSC | Eventos {% endblock title %}
+
+{% block showcase %}
+    <h2>Eventos</h2>
+{% endblock %}
+
+{% block content %}
+    <section class="section events-section">
+        <div class="container">
+            <div class="row">
+                {% for event in events %}
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ event.photo.url }}" class="responsive-img">
+                                <span class="card-title grey-text lighten-5">{{ event.name }}</span>
+                                <a href="{% url 'events:detail' slug=event.slug %}" class="btn-floating halfway-fab waves-effect waves-light btn">
+                                    <i class="material-icons">add</i>
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <i class="fas fa-calendar-day"></i> {{ event.start_date | date:'d/M/y' }}
+                                <i class="fas fa-clock"></i> {{ event.hour }}
+                                <p>{{ event.description | truncatewords:14 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <h2>Proximamente!</h2>
+                {% endfor %}
+            </div>
+            
+            {% if is_paginated %}
+                <ul class="pagination center">
+                    {% if page_obj.has_previous %}
+                        <li class="waves-effect">
+                            <a href="?page{{ page_obj.previous_page_number }}">
+                                <i class="material-icons">
+                                    chevron_left
+                                </i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="waves-effect disabled">
+                            <a href="#">
+                                <i class="material-icons">chevron_left</i>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% for i in paginator.page_range %}
+                        <li class="waves-effect {% if page_obj.number == i %} active {% endif %}">
+                            <a href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li class="waves-effect">
+                            <a href="?page={{ page_obj.next_page_number }}">
+                                <i class="material-icons">
+                                    chevron_right
+                                </i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="waves-effect disabled">
+                            <a href="#">
+                                <i class="material-icons">chevron_right</i>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+            
+        </div>
+    </section>
+
+{% endblock %}

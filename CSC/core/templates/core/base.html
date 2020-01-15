@@ -17,10 +17,11 @@
 <body>    
     {% if request.path == '/' %}
         <div id="particles-js"></div>
+        <header class="main-header grey lighten-3" id="main-header">
     {% else %}
         <div id="particles-js2"></div>
+        <header class="secondary-header grey lighten-3">
     {% endif %}
-    <header class="main-header grey lighten-3" id="main-header">
         <nav class="transparent z-depth-0">
             <div class="container">
                 <div class="nav-wrapper">
@@ -29,8 +30,16 @@
                         <i class="fas fa-bars fa-2x"></i>
                     </a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="{% url 'index' %}" class="active-link">Inicio</a></li>
-                        <li><a href="events.html">Eventos</a></li>
+                        <li>
+                            <a href="{% url 'index' %}" class="{% if request.path == '/' %} active-link {% endif %}">
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'events:list' %}" class="{% if request.path == '/eventos/' %} active-link {% endif %}">
+                                Eventos
+                            </a>
+                        </li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="#login" class="modal-trigger">Iniciar sesión </a></li>
                         <li><a href="signup.html">Registrate</a></li>
@@ -39,7 +48,7 @@
                         <h3 class="center">CSC</h3>
                         <li><div class="divider"></div></li>
                         <li><a href="{% url 'index' %}">Inicio <i class="fas fa-home left"></i></a></li>
-                        <li><a href="events.html">Eventos <i class="fas fa-calendar-day left"></i></a></li>
+                        <li><a href="{% url 'events:list' %}">Eventos <i class="fas fa-calendar-day left"></i></a></li>
                         <li><a href="blog.html">Blog <i class="fas fa-blog left"></i></a></li>
                         <li><div class="divider"></div></li>
                         <li><a href="#">Iniciar sesión <i class="fas fa-sign-in-alt left"></i></a></li>
@@ -71,14 +80,13 @@
             </div>
         </div>
 
-        <div class="showcase container">
+         <div class="showcase container">
             <div class="row center">
                 <div class="col s10 offset-s1">
                     <img src="{% static 'core/img/logo.png' %}" 
-                         width="{% if request.path == '/' %} 470px {% else %} 370px {% endif %}"
-                         class="responsive-img" alt="capitulo de sistemas computacionales">
-                    <h2>Bienvenido</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem aut voluptatum molestiae quidem numquam velit. Sint velit sunt suscipit et!</p>
+                            width="{% if request.path == '/' %} 470px {% else %} 370px {% endif %}"
+                            class="responsive-img" alt="capitulo de sistemas computacionales">
+                    {% block showcase %}{% endblock showcase %}
                 </div>
             </div>
         </div>
