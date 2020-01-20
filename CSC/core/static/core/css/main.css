@@ -4,8 +4,8 @@
 /* color: #1C768F; */
 
 .alert-custom{
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 5px;
 }
 
@@ -75,6 +75,13 @@ p{
 
 .dropdown-content li > a, .dropdown-content li > span {
 	color: #1C768F;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current {
+	background: #032539 !important;
+	box-shadow: #178fe5 0 1px 3px 0 inset;
+	color: #fff;
+	font-weight: 700;
 }
 
 .modal { width: 25% !important  } 
@@ -193,7 +200,8 @@ nav ul a{
     margin-top: 5rem;
 }
 
-.contact-section i{
+.contact-section i,
+.signup-section i{
     color: #032539;
 }
 
@@ -204,6 +212,12 @@ nav ul a{
 
 .errors small{
     color: #e57373!important;
+}
+
+.signup-form .row,
+.layout-row,
+.layout-row .row{
+    margin-bottom: 0px!important;
 }
 
 

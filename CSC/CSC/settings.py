@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'material',
     'core.apps.CoreConfig',
     'event',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,5 @@ EMAIL_HOST_PASSWORD = '50273ca25419fe'
 EMAIL_PORT = '2525'
 
 INTERNAL_IPS = ['127.0.0.1']
+
+DATE_INPUT_FORMATS = ['%d-%m-%Y']

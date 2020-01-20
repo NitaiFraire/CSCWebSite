@@ -19,7 +19,7 @@ def index(request):
         if contact_form.is_valid():
             name = request.POST.get('name')
             email = request.POST.get('email')
-            phone = request.POST.get('phone')
+            phone = request.POST['phone']
             message = request.POST.get('message')
 
             sendMail = EmailMessage(
@@ -36,8 +36,7 @@ def index(request):
                 c.save()
                 return redirect(reverse('index')+'?ok&#main-header')
             except:
-                return redirect(reverse('index')+'?error&#main-header')
-
+                return redirect(reverse('index')+'?error&#contact-form')
     else:
         contact_form = ContactForm()
     

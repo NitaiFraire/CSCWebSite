@@ -121,13 +121,12 @@
                 </p>
             </div>
             <div class="col sm 12 m6">
-                <div class="card-panel" id="contact-form">
+                <div class="card-panel grey lighten-4 grey-text text-darken-4" id="contact-form">
                 {% if 'ok' in request.GET %}
-                    <span class="alert-success">
-                        {% comment %} Mensaje enviado correctamente, nos contactaremos contigo lo antes posible. {% endcomment %}
+                    <span class="alert-success-contact">
                     </span>
                 {% elif 'error' in request.GET %}
-                    <span class="alert-error">
+                    <span class="alert-error-contact">
                         {% comment %} No se pudo enviar tu mensaje, intentalo de nuevo. {% endcomment %}
                     </span>
                 {% endif %}

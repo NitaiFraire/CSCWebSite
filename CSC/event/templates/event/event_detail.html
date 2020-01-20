@@ -25,10 +25,10 @@
                             <strong>{{ event.start_date | date:'l d/M/y' }}</strong>
                             al
                             <strong>{{ event.end_date | date:'l d/M/y' }}</strong>
+                            <br>
+                            <i class="fas fa-clock"></i> {{ event.hour }}
                         {% endif %}
                     {% endif %}
-                    <br>
-                    <i class="fas fa-clock"></i> {{ event.hour }}
 
                     <hr>
 

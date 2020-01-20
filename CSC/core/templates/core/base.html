@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    {% include 'material/includes/material_css.html' %}
     <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link type="text/css" rel="stylesheet" href="{% static 'core/css/materialize.min.css' %}" media="screen">
+    {% comment %} <link type="text/css" rel="stylesheet" href="{% static 'core/css/materialize.min.css' %}" media="screen"> {% endcomment %}
     <link type="text/css" rel="stylesheet" href="{% static 'core/css/main.css' %}" media="screen">
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -42,7 +42,11 @@
                         </li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="#login" class="modal-trigger">Iniciar sesión </a></li>
-                        <li><a href="signup.html">Registrate</a></li>
+                        <li>
+                            <a href="{% url 'account:register' %}" class="{% if request.path == '/registro/' %} active-link {% endif %}">
+                                Registrate
+                            </a>
+                        </li>
                     </ul>
                     <ul class="sidenav" id="mobile-nav">
                         <h3 class="center">CSC</h3>
@@ -102,8 +106,13 @@
         <p>Capítulo de sistemas computacionales &copy; 2020</p>
     </footer>
 
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		    
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script>
-    <script src="{% static 'core/js/materialize.min.js' %}" type="text/javascript"></script>
+    {% comment %} <script src="{% static 'core/js/materialize.min.js' %}" type="text/javascript"></script> {% endcomment %}
     <script src="{% static 'core/js/main.js' %}"></script>
     <script src="{% static 'core/js/particles.min.js' %}"></script>
     {% if request.path == '/' %}
@@ -111,7 +120,7 @@
     {% else %}
         <script src="{% static 'core/js/particulas2.js' %}"></script>
     {% endif %}
-    
+    {% include 'material/includes/material_js.html' %}
     <script type="text/javascript">
     
         document.addEventListener('DOMContentLoaded', function() {
@@ -123,6 +132,7 @@
 
             var loginModal = document.querySelectorAll('.modal');
             var instances = M.Modal.init(loginModal);
+
         });
             
     </script>
