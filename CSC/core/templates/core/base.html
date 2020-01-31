@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     {% include 'material/includes/material_css.html' %}
     <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    {% comment %} <link type="text/css" rel="stylesheet" href="{% static 'core/css/materialize.min.css' %}" media="screen"> {% endcomment %}
     <link type="text/css" rel="stylesheet" href="{% static 'core/css/main.css' %}" media="screen">
+    <link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/png"/>
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>    
@@ -25,17 +25,17 @@
         <nav class="transparent z-depth-0">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="{% url 'index' %}" class="brand-logo hide-on-med-and-down">CSC</a>
+                    <a href="{% url 'index' %}" class="brand-logo hide-on-med-and-down"><h4>CSC</h4></a>
                     <a href="#" data-target="mobile-nav" class="sidenav-trigger">
                         <i class="fas fa-bars fa-2x"></i>
                     </a>
                     <ul class="right hide-on-med-and-down">
-                        <li>
+                        {% comment %} <li>
                             <a href="{% url 'index' %}" class="{% if request.path == '/' %} active-link {% endif %}">
                                 Inicio
                             </a>
-                        </li>
-                        <li>
+                        </li> {% endcomment %}
+                        {% comment %} <li>
                             <a href="{% url 'events:list' %}" class="{% if request.path == '/eventos/' %} active-link {% endif %}">
                                 Eventos
                             </a>
@@ -46,9 +46,9 @@
                             <a href="{% url 'account:register' %}" class="{% if request.path == '/registro/' %} active-link {% endif %}">
                                 Registrate
                             </a>
-                        </li>
+                        </li> {% endcomment %}
                     </ul>
-                    <ul class="sidenav" id="mobile-nav">
+                    {% comment %} <ul class="sidenav" id="mobile-nav">
                         <h3 class="center">CSC</h3>
                         <li><div class="divider"></div></li>
                         <li><a href="{% url 'index' %}">Inicio <i class="fas fa-home left"></i></a></li>
@@ -57,7 +57,7 @@
                         <li><div class="divider"></div></li>
                         <li><a href="#">Iniciar sesión <i class="fas fa-sign-in-alt left"></i></a></li>
                         <li><a href="signup.html">Registrate <i class="fas fa-user-plus left"></i> </a></li>
-                    </ul>
+                    </ul> {% endcomment %}
                 </div>
             </div>
         </nav>
@@ -106,21 +106,19 @@
         <p>Capítulo de sistemas computacionales &copy; 2020</p>
     </footer>
 
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-		    
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script>
-    {% comment %} <script src="{% static 'core/js/materialize.min.js' %}" type="text/javascript"></script> {% endcomment %}
+    <script src="{% static 'core/js/jquery.js' %}"></script>
     <script src="{% static 'core/js/main.js' %}"></script>
     <script src="{% static 'core/js/particles.min.js' %}"></script>
+
+    {% include 'material/includes/material_js.html' %}
+
     {% if request.path == '/' %}
         <script src="{% static 'core/js/particulas.js' %}"></script>
     {% else %}
         <script src="{% static 'core/js/particulas2.js' %}"></script>
     {% endif %}
-    {% include 'material/includes/material_js.html' %}
+    
     <script type="text/javascript">
     
         document.addEventListener('DOMContentLoaded', function() {
@@ -134,7 +132,26 @@
             var instances = M.Modal.init(loginModal);
 
         });
-            
+
+
+
+
+    console.log("%cDesarrollado por:", "color:#85e085;")
+
+    console.log(
+    "%c                         \n" +
+    "  ███╗   ██╗██╗████████╗ █████╗ ██╗ \n" +
+    "  ████╗  ██║██║╚══██╔══╝██╔══██╗██║ \n" +
+    "  ██╔██╗ ██║██║   ██║   ███████║██║ \n" +
+    "  ██║╚██╗██║██║   ██║   ██╔══██║██║ \n" +
+    "  ██║ ╚████║██║   ██║   ██║  ██║██║ \n" +
+    "  ╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝ \n", "color:#85cc95;font-size:15px");
+
+
+    console.log("%c¿Te gustaría colaborar con el proyecto?", "color:#85e085");
+    console.log("%cEscríbeme a: %cnfraire07@csc-its.com","color:#85e085","text-decoration:underline #ff6666;color:#ff6666");
+
+      
     </script>
 </body>
 </html>

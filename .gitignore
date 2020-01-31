@@ -1,13 +1,11 @@
 /.vscode
 
-# materialize
-css/materialize.min.css
-js/materialize.min.js
 
 # particles
 js/particles.min.js
 js/particulas.js
 js/particulas2.js
+
 
 # images
 img/
@@ -84,9 +82,6 @@ docs/_build/
 
 # PyBuilder
 target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
 
 # IPython
 profile_default/

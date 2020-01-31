@@ -16,10 +16,11 @@ import shutil
 ###################################
 
 def event_banner(instance, filename):
-    old_instance = Detail.objects.get(pk=instance.pk)
-    old_instance.photo.delete()
-    
-    return f'events/{instance.slug}/banner/{filename}'
+    try:
+        old_instance = Detail.objects.get(pk=instance.pk)
+        old_instance.photo.delete()
+    finally:
+        return f'events/{instance.slug}/banner/{filename}'
 
 def event_gallery(instance, filename):
     return f'events/{instance.event_id.slug}/gallery/{filename}'
@@ -71,7 +72,7 @@ class Detail(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        super().save(*args,**kwargs)
+        super().save(*args, **kwargs)
 
 
     def __str__(self):
@@ -90,7 +91,9 @@ class Detail(models.Model):
         ]
 
 class Gallery(models.Model):
-    event_id    = models.OneToOneField(Detail, on_delete=models.CASCADE, related_name="event_gallery")
+    event_id    = models.OneToOneField(Detail,
+                                       on_delete=models.CASCADE,
+                                       verbose_name="galeria de evento")
     name        = models.CharField(max_length=30, blank=True)
     photo1      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 1") 
     photo2      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 2") 

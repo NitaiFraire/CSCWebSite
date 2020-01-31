@@ -1,11 +1,11 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
-{% block title %} CSC | Inicio {% endblock title %}
+{% block title %} Inicio {% endblock title %}
 
 {% block showcase %}
     <h2>Bienvenido</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem aut voluptatum molestiae quidem numquam velit. Sint velit sunt suscipit et!</p>
+    {% comment %} <p>Al sitio del capítulo estudiantil de sistemas computacionales.</p> {% endcomment %}
 {% endblock %}
 
 {% block content %}
@@ -24,16 +24,6 @@
             </div>
             <div class="col s12 l4">
                 <div class="card-panel z-depth-3">
-                    <img src="{% static 'core/img/goal.png' %}" height="75px">
-                    <h5>Responsabilidad</h5>
-                    <p>
-                        Virtud de no solo tomar desiciones de manera consciente sino también de asumir las consecuencias
-                        que tengan siempre con actitud de crecimiento.
-                    </p>
-                </div>
-            </div>
-            <div class="col s12 l4">
-                <div class="card-panel z-depth-3">
                     <img src="{% static 'core/img/respect.png' %}" height="75px">
                     <h5>Respeto</h5>
                     <p>
@@ -42,40 +32,50 @@
                     </p>
                 </div>
             </div>
+            <div class="col s12 l4">
+                <div class="card-panel z-depth-3">
+                    <img src="{% static 'core/img/goal.png' %}" height="75px">
+                    <h5>Responsabilidad</h5>
+                    <p>
+                        Virtud de no solo tomar desiciones de manera consciente sino también de asumir las consecuencias
+                        que tengan siempre con actitud de crecimiento.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="section section-who-we-are">
+<section class="section who-we-are-section">
     <div class="container">
         <div class="row">
             <div class="col s12 l5">
                 <img src="{% static 'core/img/scsteam.jpeg' %}" class="responsive-img z-depth-2">
             </div>
             <div class="col s12 l6 side-points">
-                <h4>Lorem ipsum dolor</h4>
+                <h4>Nuestro enfoque</h4>
                 <div class="row">
                     <div class="col s12 m6">
                         <i class="fas fa-tachometer-alt fa-2x"></i>
-                        <h5>Trabajamos rapido</h5>
-                        <p>Find a better way to break through. Innovate boldly, and intelligently.</p>
+                        <h5>Eficacia</h5>
+                        <p>Se ponen en acción inquietudes y ser un agente de cambio, poner en práctica y desarrollar diferentes habilidades para la adquisición de experiencia.</p>
                     </div>
                     <div class="col s12 m6">
                         <i class="fas fa-users fa-2x"></i>
-                        <h5>Nuestra comunidad</h5>
-                        <p>Find a better way to break through. Innovate boldly, and intelligently.</p>
+                        <h5>Comunidad</h5>
+                        <p>Desarrollar el sentido de la participación social, para mejorar la calidad de trabajo en nuestra comunidad y el país.</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 m6">
                         <i class="fas fa-laptop-code fa-2x"></i>
                         <h5>Ideas creativas</h5>
-                        <p>Find a better way to break through. Innovate boldly, and intelligently.</p>
+                        <p>Atender, canalizar, dar seguimiento y solucionar de forma satisfactoria las necesidades de los estudiantes.</p>
                     </div>
                     <div class="col s12 m6">
                         <i class="fas fa-puzzle-piece fa-2x"></i>
-                        <h5>Trabajamos en el resultado</h5>
-                        <p>Our responsibility is to provide you with the right solutions.</p>
+                        <h5>Somos un equipo</h5>
+                        <p>Formado por estudiantes que se identifican por un mismo interés y comparten un objetivo en común.</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
 
 {% include 'event/_gallery.html' %}
 
-<section class="section partners-section grey lighten-3 center">
+{% comment %} <section class="section partners-section grey lighten-3 center">
     <div class="contaier">
         <div class="row">
             <div class="col s12 m2 offset-m1">
@@ -105,19 +105,35 @@
             </div>
         </div>
     </div>
-</section>
+</section> {% endcomment %}
 
 <section class="section contact-section">
     <div class="container">
         <div class="row">
-            <div class="col sm12 m6">
+            <div class="col sm12 m6 contact-info">
                 <h3>Contactanos</h3> 
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, nostrum delectus? Ipsam beatae libero repudiandae.</p>
                 <p>
-                    <i class="fas fa-graduation-cap fa-2x"></i> Instituto tecnologico de saltillo
+                    Te gustaría formar parte del capítulo de sistemas, tienes algúna duda, comentario y/o sugerencia acerca de nostros.<br>
+                    Escríbenos! te atenderemos lo antes posible.
                 </p>
                 <p>
-                    <i class="fas fa-map-marker-alt fa-2x"></i> Saltillo Cohuila México
+                    <i class="fas fa-map-marker-alt fa-2x"></i>
+                    <span>
+                        Blvd. Venustiano Carranza #2400 <br> Colonia Tecnológico
+                        Saltillo, Coahuila, México C.P 25280.
+                    </span>
+                    <br>
+                    <br>
+                    <i class="fas fa-clock fa-2x"></i>
+                    <span>
+                        Lunes a viernes: 7:00 a.m a 08:00 p.m
+                    </span>
+                    <br>
+                    <br>
+                    {% comment %} <i class="fas fa-phone-alt prefix fa-2x "></i>
+                    <span>
+                        (844) 123-53-44
+                    </span> {% endcomment %}
                 </p>
             </div>
             <div class="col sm 12 m6">
@@ -139,7 +155,7 @@
                             {% part form.phone prefix %} <i class="fas fa-phone-alt prefix"></i> {% endpart %}
                             {% part form.message prefix %} <i class="fas fa-comment-dots prefix"></i> {% endpart %}
                         {% endform %}
-                        <button type="submit" class="btn">Submit</button>
+                        <button type="submit" class="btn">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -147,3 +163,4 @@
     </div>
 </section>
 {% endblock %}
+
