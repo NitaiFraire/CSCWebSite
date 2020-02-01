@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
 
     <link type="text/css" rel="stylesheet" href="{% static 'core/css/main.css' %}" media="screen">
-    <link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/png"/>
+    <link rel="shortcut icon" href="{% static 'core/img/icon.png' %}">
+
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>    
@@ -97,10 +98,11 @@
     </header>
     {% block content %}{% endblock content %}
     <footer class="section white-text center">
-        <a href="#">
+        <a href="https://www.facebook.com/CapituloEstudiantilDeSistemasComputacionales/"
+           target="_blank">
             <i class="fab fa-facebook fa-3x"></i>
         </a>
-        <a href="#">
+        <a href="https://www.instagram.com/cscits/" target="_blank">
             <i class="fab fa-instagram fa-3x"></i>
         </a>
         <p>Capítulo de sistemas computacionales &copy; 2020</p>
@@ -133,25 +135,20 @@
 
         });
 
+        console.log("%cDesarrollado por:", "color:#85e085;")
+
+        console.log(
+        "%c                         \n" +
+        "  ███╗   ██╗██╗████████╗ █████╗ ██╗ \n" +
+        "  ████╗  ██║██║╚══██╔══╝██╔══██╗██║ \n" +
+        "  ██╔██╗ ██║██║   ██║   ███████║██║ \n" +
+        "  ██║╚██╗██║██║   ██║   ██╔══██║██║ \n" +
+        "  ██║ ╚████║██║   ██║   ██║  ██║██║ \n" +
+        "  ╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝ \n", "color:#85cc95;font-size:15px");
 
 
-
-    console.log("%cDesarrollado por:", "color:#85e085;")
-
-    console.log(
-    "%c                         \n" +
-    "  ███╗   ██╗██╗████████╗ █████╗ ██╗ \n" +
-    "  ████╗  ██║██║╚══██╔══╝██╔══██╗██║ \n" +
-    "  ██╔██╗ ██║██║   ██║   ███████║██║ \n" +
-    "  ██║╚██╗██║██║   ██║   ██╔══██║██║ \n" +
-    "  ██║ ╚████║██║   ██║   ██║  ██║██║ \n" +
-    "  ╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝ \n", "color:#85cc95;font-size:15px");
-
-
-    console.log("%c¿Te gustaría colaborar con el proyecto?", "color:#85e085");
-    console.log("%cEscríbeme a: %cnfraire07@csc-its.com","color:#85e085","text-decoration:underline #ff6666;color:#ff6666");
-
-      
+        console.log("%c¿Te gustaría colaborar con el proyecto?", "color:#85e085");
+        console.log("%cEscríbeme a: %cnfraire07@csc-its.com","color:#85e085","text-decoration:underline #ff6666;color:#ff6666");
     </script>
 </body>
 </html>

@@ -40,6 +40,7 @@ class ControlNumber(models.Model):
         verbose_name = 'numero de control'
         verbose_name_plural = 'numeros de control'
 
+# heredar de models.User
 class Profile(models.Model):
     GENDER_CHOICES = [
         ('M', 'Masculino'),
@@ -64,16 +65,16 @@ class Profile(models.Model):
     control_number  = models.OneToOneField(ControlNumber, on_delete=models.CASCADE,
                                            verbose_name="número de control", null=True) # y
     user            = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_last_name = models.CharField(verbose_name="apellido paterno", max_length=50, blank=True) # y
+    first_last_name = models.CharField(verbose_name="apellido paterno", max_length=50, blank=True)
     photo           = models.ImageField(verbose_name="foto de perfil",
                                         upload_to=photo_account,
                                         blank=True) 
     semester        = models.CharField(verbose_name="semestre", max_length=1,
-                                       choices=SEMESTER_CHOICES, blank=True) # x
-    birthday        = models.DateField(verbose_name="fecha de nacimiento", null=True) # x
+                                       choices=SEMESTER_CHOICES, blank=True)
+    birthday        = models.DateField(verbose_name="fecha de nacimiento", null=True)
     gender          = models.CharField(verbose_name="genero", max_length=1,
-                                       choices=GENDER_CHOICES, blank=True) # y
-    phone           = models.CharField(verbose_name="telefono", max_length=10, blank=True) # y
+                                       choices=GENDER_CHOICES, blank=True)
+    phone           = models.CharField(verbose_name="telefono", max_length=10, blank=True)
     facebook        = models.URLField(verbose_name="facebook", blank=True)
     instagram       = models.URLField(verbose_name="instagram", blank=True)
     github          = models.URLField(verbose_name="gitHub", blank=True)
