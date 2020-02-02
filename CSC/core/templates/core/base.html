@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
 
-    <link type="text/css" rel="stylesheet" href="{% static 'core/css/main.css' %}" media="screen">
-    <link rel="shortcut icon" href="{% static 'core/img/icon.png' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}" media="screen">
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}">
 
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -88,7 +88,7 @@
          <div class="showcase container">
             <div class="row center">
                 <div class="col s10 offset-s1">
-                    <img src="{% static 'core/img/logo.png' %}" 
+                    <img src="{% static 'img/logo.png' %}" 
                             width="{% if request.path == '/' %} 470px {% else %} 370px {% endif %}"
                             class="responsive-img" alt="capitulo de sistemas computacionales">
                     {% block showcase %}{% endblock showcase %}
@@ -109,16 +109,16 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/efb850023e.js" crossorigin="anonymous"></script>
-    <script src="{% static 'core/js/jquery.js' %}"></script>
-    <script src="{% static 'core/js/main.js' %}"></script>
-    <script src="{% static 'core/js/particles.min.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/particles.min.js' %}"></script>
 
     {% include 'material/includes/material_js.html' %}
 
     {% if request.path == '/' %}
-        <script src="{% static 'core/js/particulas.js' %}"></script>
+        <script src="{% static 'js/particulas.js' %}"></script>
     {% else %}
-        <script src="{% static 'core/js/particulas2.js' %}"></script>
+        <script src="{% static 'js/particulas2.js' %}"></script>
     {% endif %}
     
     <script type="text/javascript">
