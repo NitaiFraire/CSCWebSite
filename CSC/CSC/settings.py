@@ -138,3 +138,8 @@ DATE_INPUT_FORMATS = ['%d-%m-%Y']
 # SECURE_HSTS_SECONDS = 86400  # 1 day
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 # SECURE_HSTS_PRELOAD = True
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
