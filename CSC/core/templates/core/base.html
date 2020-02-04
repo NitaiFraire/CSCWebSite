@@ -2,6 +2,7 @@
 {% load static %}
 <html lang="es">
 <head>
+    {% block gtag %}{% endblock %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -27,9 +28,9 @@
             <div class="container">
                 <div class="nav-wrapper">
                     <a href="{% url 'index' %}" class="brand-logo hide-on-med-and-down"><h4>CSC</h4></a>
-                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                    {% comment %}<a href="#" data-target="mobile-nav" class="sidenav-trigger">
                         <i class="fas fa-bars fa-2x"></i>
-                    </a>
+                    </a>{% comment %}
                     <ul class="right hide-on-med-and-down">
                         {% comment %} <li>
                             <a href="{% url 'index' %}" class="{% if request.path == '/' %} active-link {% endif %}">

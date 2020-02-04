@@ -130,6 +130,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = True
+# EMAIL_PORT = 465    # SSL
+EMAIL_PORT = 587    # TLS
+EMAIL_HOST_USER = 'nfraire07@gmail.com'
+EMAIL_HOST_PASSWORD = 'Arya.stark420'
+
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'b524379365ad1b'
+# EMAIL_HOST_PASSWORD = '50273ca25419fe'
+# EMAIL_PORT = '2525'
+
 # CSRF_COOKIE_SECURE = True
 # SESSION_COOKIE_SECURE = True
 # SECURE_BROWSER_XSS_FILTER = True

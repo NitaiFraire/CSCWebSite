@@ -1,6 +1,17 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
+{% block gtag %}
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157747004-1"></script>
+	<script>
+ 		 window.dataLayer = window.dataLayer || [];
+		 function gtag(){dataLayer.push(arguments);}
+	 	 gtag('js', new Date());
+
+		 gtag('config', 'UA-157747004-1');
+	</script>	
+{% endblock gtag %}
+
 {% block title %} Inicio {% endblock title %}
 
 {% block showcase %}
@@ -14,7 +25,7 @@
         <div class="row">
             <div class="col s12 l4">
                 <div class="card-panel z-depth-3">
-                    <img src="{% static 'core/img/cogwheel.png' %}" height="75px">
+                    <img src="{% static 'img/cogwheel.png' %}" height="75px">
                     <h5>Compromiso</h5>
                     <p>
                         Organización de actividades favorables para los estudiantes de la carrera para incentivar,
@@ -24,7 +35,7 @@
             </div>
             <div class="col s12 l4">
                 <div class="card-panel z-depth-3">
-                    <img src="{% static 'core/img/respect.png' %}" height="75px">
+                    <img src="{% static 'img/respect.png' %}" height="75px">
                     <h5>Respeto</h5>
                     <p>
                         Conocer el valor propio y honrar el valor de los demás es la verdadera manera de ganar respeto.
@@ -34,7 +45,7 @@
             </div>
             <div class="col s12 l4">
                 <div class="card-panel z-depth-3">
-                    <img src="{% static 'core/img/goal.png' %}" height="75px">
+                    <img src="{% static 'img/goal.png' %}" height="75px">
                     <h5>Responsabilidad</h5>
                     <p>
                         Virtud de no solo tomar desiciones de manera consciente sino también de asumir las consecuencias
@@ -50,7 +61,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 l5">
-                <img src="{% static 'core/img/scsteam.jpeg' %}" class="responsive-img z-depth-2">
+                <img src="{% static 'img/scsteam.jpeg' %}" class="responsive-img z-depth-2">
             </div>
             <div class="col s12 l6 side-points">
                 <h4>Nuestro enfoque</h4>

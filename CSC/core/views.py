@@ -1,4 +1,5 @@
-from django.core.mail import EmailMessage
+from django.conf import settings
+from django.core.mail import EmailMessage, send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
@@ -24,9 +25,9 @@ def index(request):
 
             sendMail = EmailMessage(
                 'CSC: Nuevo mensaje de contacto',
-                f'De: {name} <{email}>\nTelefono:{phone}\n\nMensaje:\n\n{message}',
-                "no-contestar@inbox.mailtrap.io",
-                ['fernandezfrairenitai@hotmail.com'],
+                f'De: {name} <{email}>\nTelefono:{phone}\n\nMensaje:\n{message}',
+                email,
+                ['nfraire07@csc-its.com'],
                 reply_to=[email]
             )
 
@@ -34,6 +35,7 @@ def index(request):
                 sendMail.send()
                 c = Contact(name=name, email=email, phone=phone, message=message)
                 c.save()
+
                 return redirect(reverse('index')+'?ok&#main-header')
             except:
                 return redirect(reverse('index')+'?error&#contact-form')

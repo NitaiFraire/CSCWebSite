@@ -49,7 +49,7 @@ class Type(models.Model):
 class Detail(models.Model):
     event_type_id   = models.ForeignKey(Type,
                             on_delete=models.CASCADE,
-                            verbose_name="tipo de evento")
+                            verbose_name="tipo de evento", related_name="type")
     name            = models.CharField(max_length=30, blank=False, unique=True,
                                        verbose_name="nombre")
     slug            = models.SlugField(allow_unicode=True, unique=True)
@@ -93,7 +93,7 @@ class Detail(models.Model):
 class Gallery(models.Model):
     event_id    = models.OneToOneField(Detail,
                                        on_delete=models.CASCADE,
-                                       verbose_name="galeria de evento")
+                                       verbose_name="galeria de evento", related_name="event_gallery")
     name        = models.CharField(max_length=30, blank=True)
     photo1      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 1") 
     photo2      = models.ImageField(upload_to=event_gallery, null=True, blank=True, verbose_name="foto 2") 
