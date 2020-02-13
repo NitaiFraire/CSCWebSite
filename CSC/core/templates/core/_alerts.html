@@ -1,0 +1,21 @@
+{% if messages %}
+{% comment %} {{ messages }} {% endcomment %}
+    {% comment %} {% for message in messages %} {% endcomment %}
+        <p class="alert-custom center z-depth-1
+            {% if message.tags == success %} teal lighten-4
+            {% elif message.tags == error %} red lighten-3
+            {% endif %}">
+
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+
+            {% if message.tags == success %} 
+                <i class="material-icons">check_circle</i>    
+            {% elif message.tags == error %}
+                <i class="material-icons">error_outline</i>
+            {% endif %}
+        </p>
+    {% comment %} {% endfor %} {% endcomment %}
+{% endif %}
+

@@ -28,38 +28,38 @@
             <div class="container">
                 <div class="nav-wrapper">
                     <a href="{% url 'index' %}" class="brand-logo hide-on-med-and-down"><h4>CSC</h4></a>
-                    {% comment %}<a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                     <a href="#" data-target="mobile-nav" class="sidenav-trigger">
                         <i class="fas fa-bars fa-2x"></i>
-                    </a>{% comment %}
+                    </a>
                     <ul class="right hide-on-med-and-down">
-                        {% comment %} <li>
+                         <li>
                             <a href="{% url 'index' %}" class="{% if request.path == '/' %} active-link {% endif %}">
                                 Inicio
                             </a>
-                        </li> {% endcomment %}
-                        {% comment %} <li>
+                        </li>
+                         {% comment %} <li>
                             <a href="{% url 'events:list' %}" class="{% if request.path == '/eventos/' %} active-link {% endif %}">
                                 Eventos
                             </a>
                         </li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog.html">Blog</a></li> {% endcomment %}
                         <li><a href="#login" class="modal-trigger">Iniciar sesión </a></li>
                         <li>
                             <a href="{% url 'account:register' %}" class="{% if request.path == '/registro/' %} active-link {% endif %}">
                                 Registrate
                             </a>
-                        </li> {% endcomment %}
+                        </li>
                     </ul>
-                    {% comment %} <ul class="sidenav" id="mobile-nav">
+                     <ul class="sidenav" id="mobile-nav">
                         <h3 class="center">CSC</h3>
                         <li><div class="divider"></div></li>
                         <li><a href="{% url 'index' %}">Inicio <i class="fas fa-home left"></i></a></li>
-                        <li><a href="{% url 'events:list' %}">Eventos <i class="fas fa-calendar-day left"></i></a></li>
-                        <li><a href="blog.html">Blog <i class="fas fa-blog left"></i></a></li>
+                        {% comment %} <li><a href="{% url 'events:list' %}">Eventos <i class="fas fa-calendar-day left"></i></a></li> {% endcomment %}
+                        {% comment %} <li><a href="blog.html">Blog <i class="fas fa-blog left"></i></a></li> {% endcomment %}
                         <li><div class="divider"></div></li>
                         <li><a href="#">Iniciar sesión <i class="fas fa-sign-in-alt left"></i></a></li>
                         <li><a href="signup.html">Registrate <i class="fas fa-user-plus left"></i> </a></li>
-                    </ul> {% endcomment %}
+                    </ul>
                 </div>
             </div>
         </nav>

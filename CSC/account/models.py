@@ -20,7 +20,7 @@ def photo_account(instance, filename):
 ####################################
 
 def replace_str_user(self):
-    return f'{self.first_name} {self.last_name}'
+    return f'{self.email}'
 
 User.add_to_class('__str__', replace_str_user)
 
@@ -40,7 +40,7 @@ class ControlNumber(models.Model):
         verbose_name = 'numero de control'
         verbose_name_plural = 'numeros de control'
 
-# heredar de models.User
+
 class Profile(models.Model):
     GENDER_CHOICES = [
         ('M', 'Masculino'),
@@ -92,8 +92,3 @@ class Profile(models.Model):
 #####################################
 #############[ SIGNALS ]#############
 #####################################
-
-@receiver(post_save, sender=User)
-def update(sender, instance, **kwargs):
-    if kwargs.get('created', False):
-        Profile.objects.get_or_create(user=instance)

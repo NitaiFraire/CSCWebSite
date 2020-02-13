@@ -20,7 +20,7 @@ SECRET_KEY = 'tfdsad=upfdsar8t-q%a&&&70(cqx33$(l88jvh*3c_+8l@&v&_0%w3'
 # Development
 #############
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {

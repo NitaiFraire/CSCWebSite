@@ -5,12 +5,12 @@ from .models import Profile, ControlNumber
 class AccountTestCase(TestCase):
 
     def setUp(self):
-        self.user1 = User.objects.create_user('user', email="6574657547", password=None)
+        self.user1 = User.objects.create_user('user', email="6574657547", password="Aryaa,,,34343")
         self.control_number = ControlNumber('2090039469', False)
         self.control_number.save()
     
     def link_user_profile(self):
-        profile = Profile.objects.get(user_id=self.user1.id)
+        profile = Profile.objects.create(user_id=self.user1.id)
         profile.phone="1234567891"
         profile.gender="M"
         profile.first_last_name="javi"

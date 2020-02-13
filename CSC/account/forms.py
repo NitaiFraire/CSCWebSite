@@ -40,7 +40,8 @@ class UserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('email', 'password1', 'password2')
+        fields = ('email', 'password1', 'password2', 'first_name',
+                  'first_last_name', 'last_name', 'semester', 'gender')
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -52,7 +53,7 @@ class UserForm(UserCreationForm):
         phone = self.cleaned_data.get('phone')
 
         if phone.isnumeric() == False:
-            raise ValidationError("El telefono debe ser únicamente numerico")
+            raise ValidationError("El telefono debe ser únicamente numerico.")
 
     def clean_control_number(self):
         ctrl_number = self.cleaned_data.get('control_number')
@@ -61,8 +62,7 @@ class UserForm(UserCreationForm):
             ControlNumber.objects.filter(pk=ctrl_number     # not exists
                                 ).exists() == False     
         ):
-            raise ValidationError("Número de control invalido")
-
+            raise ValidationError("Número de control invalido.")
 
         if (
             ControlNumber.objects.filter(pk=ctrl_number
@@ -70,9 +70,7 @@ class UserForm(UserCreationForm):
                                 ).exists() 
                 
         ):
-            raise ValidationError("Número de control invalido") 
-
-        return ctrl_number
+            raise ValidationError("Número de control invalido.")
 
 
     layout = Layout(Row('first_name', 'first_last_name', 'last_name'),

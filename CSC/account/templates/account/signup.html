@@ -8,7 +8,7 @@
     <section class="section signup-section">
         <div class="container">
             <div class="row">
-                <div class="col s12 m6">
+                <div class="col s12 l6">
                     <h4>lorem orem lorem lorem</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, adipisci.</p>
                     <h4>lorem orem lorem </h4>
@@ -16,21 +16,9 @@
                     <h4>lorem orem lorem lorem  lorem</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, adipisci.</p>
                 </div>
-                <div class="col s12 m6">
-                {% comment %} red lighten-3 alert-custom z-depth-2 {% endcomment %}
+                <div class="col s12 l6">
                     <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-2">
-                    {% if messages %}
-                        {% for message in messages %}
-                        <p class="{{ messages.class }}">
-                            {{ message }}
-                            {% comment %} <i class="material-icons">error_outline</i> {% endcomment %}
-                        </p>
-                        {% endfor %}
-                    {% endif %}
-                    {% comment %} {% for message in messages %} {% endcomment %}
-                        {% comment %} <span class="alert-error center"> {% endcomment %}
-                        {% comment %} </span> {% endcomment %}
-                    {% comment %} {% endif %} {% endcomment %}
+                        {% include 'core/_alerts.html' %}
                         {% load material_form %}
                         <form method="POST" class="signup-form">
                             {% csrf_token %}

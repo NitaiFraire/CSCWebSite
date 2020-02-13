@@ -23,9 +23,9 @@ def register_user(request):
             birthday = request.POST['birthday']
             gender = request.POST['gender']
             semester = request.POST['semester']
-            
+
             try:
-                username = first_name+first_last_name+last_name, 
+                username = f'{first_name} {first_last_name} {last_name}'
                 u = User.objects.create_user(
                     username=username,
                     email=email,
@@ -34,7 +34,7 @@ def register_user(request):
                     last_name=last_name
                 )
 
-                profile = Profile.objects.get(user_id=u.id)
+                profile = Profile.objects.create(user_id=u.id)
                 profile.phone=phone
                 profile.gender=gender
                 profile.first_last_name=first_last_name
@@ -48,10 +48,11 @@ def register_user(request):
                     is_active=True
                 )
                 
-                
-                messages.success(request, 'Cuenta creada correctamente.')
+                messages.add_message(request, messages.SUCCESS, 'Cuenta creada correctamente.')
+                return redirect('account:register')
             except:
-                messages.error(request, 'Error al crear cuenta, intenta nuevamente.')
+                messages.add_message(request, messages.ERROR, 'Error al crear cuenta, intenta nuevamente.')
+                return redirect('account:register')
     else:
         user_form = UserForm()
     
