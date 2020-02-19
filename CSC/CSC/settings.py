@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'event',
     'account',
+    'finance',
 ]
 
 MIDDLEWARE = [

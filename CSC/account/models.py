@@ -88,7 +88,3 @@ class Profile(models.Model):
         ordering = ['control_number']
         verbose_name = 'cuenta'
     
-
-#####################################
-#############[ SIGNALS ]#############
-#####################################
