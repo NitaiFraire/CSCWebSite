@@ -130,12 +130,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587    # TLS
-EMAIL_HOST_USER = 'nfraire07@gmail.com'
-EMAIL_HOST_PASSWORD = 'Arya.stark420'
 
+# Auth redirects
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 # CSRF_COOKIE_SECURE = True
 # SESSION_COOKIE_SECURE = True

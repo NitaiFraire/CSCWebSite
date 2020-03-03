@@ -13,6 +13,13 @@
                     <img src="{{ event.photo.url }}" class="responsive-img">
                 </div>
                 <div class="col s12 m4">
+                    <h5>Descripción</h5>
+                    <p>
+                        {{ event.description }}
+                    </p>
+                    
+                    <hr>
+
                     <h5>Fecha y Hora </h5>
                     {% if event.start_date < current_time %}
                         <i class="material-icons">check</i> Evento finalizado
@@ -20,7 +27,6 @@
                         {% if event.end_date == event.start_date %}
                             <i class="fas fa-calendar-day"></i> {{ event.start_date | date:'l d/M/y' }}
                         {% else %}
-                            <h5>Del</h5>
                             <i class="fas fa-calendar-day"></i> 
                             <strong>{{ event.start_date | date:'l d/M/y' }}</strong>
                             al
@@ -42,15 +48,41 @@
                     {% comment %} <br> {% endcomment %}
                     {% comment %} <i class="fas fa-user"></i> 32 (Restantes) {% endcomment %}
                     <br>
-                    <i class="fas fa-money-bill"></i> Costo: {% if event.price != 0 %} ${{ event.price }} {% else %} Gratuito {% endif %}  
+                    <i class="fas fa-money-bill"></i> 
+                    Costo: 
+                    {% if event.price != 0 %}
+                        {% if event.offer %}
+                            <span class="offer"> ${{ event.price }}</span>
+                            <span class="offer-badge">${{ event.offer }} <span class="new badge orange accent-4" data-badge-caption="">Oferta</span></span>
+                        {% else %}
+                            ${{ event.price }}
+                        {% endif %}
+                        {% if event.days > 1 %}
+                            {% comment %} varios dias {% endcomment %}
+                        {% endif %}
 
-                    <p>Debes <strong><a href="">iniciar sesión</a></strong> antes de registrarte en el evento</p>
+                    {% else %}
+                        Gratuito
+                    {% endif %}  
+
+                    {% if not request.user.is_authenticated %}
+                        <p>Debes <strong><a href="{% url 'account:login' %}">iniciar sesión</a></strong> antes de registrarte en el evento</p>
+                    {% else %}
+                        <br>
+                        <br>
+                        {% load material_form %}
+                            <form method="POST">
+                            {% csrf_token %}
+                                {% form %}
+                                    {% part form.inscription prefix %} <i class="fas fa-ticket-alt fa-1x prefix"></i> {% endpart %}
+                                {% endform %}
+                                <input type="submit" value="Registrarme" class="btn">
+                            </form>
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
-                <p>
-                    {{ event.description }}
-                </p>
+
             </div>
         </div>
     </section>

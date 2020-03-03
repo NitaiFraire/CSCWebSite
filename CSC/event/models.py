@@ -1,11 +1,13 @@
+from django.contrib.auth.models import User
 from django.db import models
-from django import forms
+from django.db.models.signals import post_delete, pre_save, post_save
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils import timezone
 from django.conf import settings
 from django.dispatch import receiver
-from django.db.models.signals import post_delete, pre_save, post_save
+
+from django import forms
 
 import os
 import shutil
@@ -45,30 +47,34 @@ class Type(models.Model):
     class Meta:
         verbose_name = 'tipo de evento'
         ordering = ['name']
-    
+
+
 class Detail(models.Model):
     event_type_id   = models.ForeignKey(Type,
                             on_delete=models.CASCADE,
                             verbose_name="tipo de evento", related_name="type")
-    name            = models.CharField(max_length=30, blank=False, unique=True,
+    name            = models.CharField(max_length=30, unique=True,
                                        verbose_name="nombre")
-    slug            = models.SlugField(allow_unicode=True, unique=True)
-    description     = models.TextField(blank=False, verbose_name="descripcion")
     photo           = models.ImageField(upload_to=event_banner, null=False,
                                         verbose_name="flyer")
     price           = models.DecimalField(max_digits=6, decimal_places=2,
                                         verbose_name="precio")
+    days            = models.PositiveSmallIntegerField(verbose_name="dias", blank=True)
+    price_per_day   = models.DecimalField(max_digits=6, decimal_places=2,
+                                        verbose_name="precio por día", blank=True)
+    offer           = models.DecimalField(max_digits=6, decimal_places=2,
+                                        verbose_name="oferta", blank=True)
+    place           = models.CharField(max_length=100, verbose_name="lugar")
+    address         = models.CharField(max_length=100, verbose_name="dirección")
     capacity        = models.PositiveSmallIntegerField(verbose_name="capacidad")
-    place           = models.CharField(max_length=100, blank=False,
-                                       verbose_name="lugar")
-    address         = models.CharField(max_length=100, blank=False,
-                                       verbose_name="dirección")
+    description     = models.TextField(blank=False, verbose_name="descripcion")
     hour            = models.TimeField(blank=False, verbose_name="hora")
     start_date      = models.DateField(blank=False, verbose_name="inicia")
     end_date        = models.DateField(blank=False, verbose_name="termina")
     event_url       = models.URLField(blank=True, verbose_name="url")
     created         = models.DateTimeField(auto_now_add=True)
     updated         = models.DateTimeField(auto_now=True)
+    slug            = models.SlugField(allow_unicode=True, unique=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -89,6 +95,7 @@ class Detail(models.Model):
             # models.CheckConstraint(check=models.Q(start_date__gte=timezone.now()),
             #                        name="start_date_gte_current_time")
         ]
+
 
 class Gallery(models.Model):
     event_id    = models.OneToOneField(Detail,
@@ -118,6 +125,23 @@ class Gallery(models.Model):
         ordering = ['name']
         verbose_name = 'galeria'
 
+
+class UserEvent(models.Model):
+    user_id        = models.ForeignKey(User, on_delete=models.CASCADE)
+    event_id       = models.ForeignKey(Detail, on_delete=models.CASCADE)
+    payment_status = models.BooleanField(verbose_name="estado de pago", default=False)
+    payment_date   = models.DateTimeField(verbose_name="fecha de pago")
+    assistance     = models.BooleanField(verbose_name="asistencia", default=False)
+    created        = models.DateTimeField(verbose_name="creado", auto_now_add=True)
+    updated        = models.DateTimeField(verbose_name="actualizado", auto_now=True)
+
+    def __str__(self):
+        return self.user_id.email
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = 'Registros de eventos'
+    
 
 #####################################
 #############[ SIGNALS ]#############
@@ -170,4 +194,3 @@ def delete_update_pictures(sender, instance, *args, **kwargs, ):
                 update_gallery(gallery[0]['photo12'])
     except sender.DoesNotExist:
         pass
-

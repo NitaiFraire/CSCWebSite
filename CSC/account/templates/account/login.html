@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+
+{% block title %} CSC | Iniciar sesión {% endblock title %}
+
+{% block showcase %}
+    <h3>Iniciar Sesión</h3>
+{% endblock %}
+
+{% block content %}
+    <section class="section login-section">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-2">
+                        {% include 'core/_alerts.html' %}
+                        {% load material_form %}
+                        <form method="POST" class="signup-form">
+                            {% csrf_token %}
+                            {% form %}
+                                {% part form.username prefix %} <i class="material-icons prefix">account_circle</i> {% endpart %}
+                                {% part form.password prefix %} <i class="material-icons prefix">lock</i> {% endpart %}
+                            {% endform %}
+                            <input type="submit" value="Registrar" class="btn">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -13,19 +13,19 @@ def register_user(request):
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
             
-            ctrl_number = request.POST['control_number']
-            password1 = request.POST['password1']
-            first_name = request.POST['first_name']
-            first_last_name = request.POST['first_last_name']
-            last_name = request.POST['last_name']
-            email = request.POST['email']
-            phone = request.POST['phone']
-            birthday = request.POST['birthday']
-            gender = request.POST['gender']
-            semester = request.POST['semester']
+            ctrl_number = user_form.cleaned_data['control_number']
+            password1 = user_form.cleaned_data['password1']
+            first_name = user_form.cleaned_data['first_name']
+            first_last_name = user_form.cleaned_data['first_last_name']
+            last_name = user_form.cleaned_data['last_name']
+            email = user_form.cleaned_data['email']
+            phone = user_form.cleaned_data['phone']
+            birthday = user_form.cleaned_data['birthday']
+            gender = user_form.cleaned_data['gender']
+            semester = user_form.cleaned_data['semester']
+            username = user_form.cleaned_data['username']
 
             try:
-                username = f'{first_name} {first_last_name} {last_name}'
                 u = User.objects.create_user(
                     username=username,
                     email=email,
@@ -57,5 +57,3 @@ def register_user(request):
         user_form = UserForm()
     
     return render(request, 'account/signup.html', {'form': user_form})
-
-

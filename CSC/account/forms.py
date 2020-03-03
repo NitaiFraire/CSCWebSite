@@ -40,7 +40,7 @@ class UserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('email', 'password1', 'password2', 'first_name',
+        fields = ('username', 'email', 'password1', 'password2', 'first_name',
                   'first_last_name', 'last_name', 'semester', 'gender')
 
     def clean_email(self):
@@ -74,7 +74,8 @@ class UserForm(UserCreationForm):
 
 
     layout = Layout(Row('first_name', 'first_last_name', 'last_name'),
-                    'control_number', 'email',
+                    'control_number',
+                    Row('email', 'username'),
                     Row('password1', 'password2'),
                     'phone',
                     'birthday', 

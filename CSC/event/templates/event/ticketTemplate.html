@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
+    <style>
+        .details li{
+            background-color: #e0e0e0!important;
+        }
+
+        .details li i{
+            color: #1565c0;
+        }
+
+        body{
+            font-family: 'Saira Semi Condensed';
+        }
+
+        strong{
+            font-weight: 900;
+        }
+
+        h1, h2, h3, h4, h5{
+            color: #032539;
+        }
+
+    </style>
+</head>
+<body style="background-color: #eeeeee;">
+    <div class="container">
+        <div class="container">
+            <div class="row" style="padding: 2rem;">
+                <div class="" style="margin-top: 5rem;">
+                    <img src="http://127.0.0.1:8000/media/logo.png" width="252" height="200">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <h5>Fecha límite de pago</h5>
+                    <strong>
+                        <p>{{ date_limit }}</p>
+                    </strong>
+                </div>
+                <div class="col s6 grey lighten-2">
+                    <p>Total a pagar</p>
+                    <h3>${{ total }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <ul class="collection with-header details">
+                    <li class="collection-header"><h4>Detalles del recibo</h4></li>
+                    <li class="collection-item"><i class="material-icons prefix">chevron_right</i><strong>Sitec 2020</strong></li>
+                    <li class="collection-item"><i class="material-icons prefix">chevron_right</i><strong>{{ user }}</li>
+                    <li class="collection-item"><i class="material-icons prefix">chevron_right</i><strong>Fecha y Hora</strong> {{ start_date }} - {{ hour }}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <ul class="collection with-header details">
+                    <li class="collection-header"><h4>Validación de pago</h4></li>
+                    <li class="collection-item"><i class="material-icons prefix">chevron_right</i>Depositar el monto a pagar a la cuenta <strong>4352435235432</strong></li>
+                    <li class="collection-item"><i class="material-icons prefix">chevron_right</i>Beneficiario: Oziel y gis</li>
+                    <li class="collection-item"><i class="material-icons prefix">chevron_right</i>Banco: BBVA Bancomer</li>
+                    <li class="collection-item"><i class="material-icons prefix">chevron_right</i>Acudir al capítulo de sistemas para el sellado del ticket de pago.</li>
+                    <li class="collection-item"><i class="material-icons prefix">chevron_right</i>El día del evento llevar ticket de pago sellado y este documento.</li>
+                </ul>
+            </div>
+            <div class="row">
+                <h4>Detalles del evento</h4>
+                <p>{{ event_description }}</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+
