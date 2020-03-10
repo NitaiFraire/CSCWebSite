@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 #    'debug_toolbar',
+    'ckeditor',
     'material',
     'core.apps.CoreConfig',
     'event',
@@ -134,6 +135,19 @@ DATE_INPUT_FORMATS = ['%d-%m-%Y']
 # Auth redirects
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
+
+# CkEditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
 
 # CSRF_COOKIE_SECURE = True
 # SESSION_COOKIE_SECURE = True

@@ -6,8 +6,9 @@ from django.utils.text import slugify
 from django.utils import timezone
 from django.conf import settings
 from django.dispatch import receiver
-
 from django import forms
+
+from ckeditor.fields import RichTextField
 
 import os
 import shutil
@@ -61,13 +62,13 @@ class Detail(models.Model):
                                         verbose_name="precio")
     days            = models.PositiveSmallIntegerField(verbose_name="dias", blank=True)
     price_per_day   = models.DecimalField(max_digits=6, decimal_places=2,
-                                        verbose_name="precio por día", blank=True)
+                                        verbose_name="precio por día",blank=True,  null=True)
     offer           = models.DecimalField(max_digits=6, decimal_places=2,
-                                        verbose_name="oferta", blank=True)
+                                        verbose_name="oferta", null=True, blank=True)
     place           = models.CharField(max_length=100, verbose_name="lugar")
     address         = models.CharField(max_length=100, verbose_name="dirección")
     capacity        = models.PositiveSmallIntegerField(verbose_name="capacidad")
-    description     = models.TextField(blank=False, verbose_name="descripcion")
+    description     = RichTextField(blank=False, verbose_name="descripcion")
     hour            = models.TimeField(blank=False, verbose_name="hora")
     start_date      = models.DateField(blank=False, verbose_name="inicia")
     end_date        = models.DateField(blank=False, verbose_name="termina")
@@ -129,18 +130,29 @@ class Gallery(models.Model):
 class UserEvent(models.Model):
     user_id        = models.ForeignKey(User, on_delete=models.CASCADE)
     event_id       = models.ForeignKey(Detail, on_delete=models.CASCADE)
+    day_assistance = models.CharField(verbose_name="Día de asistencia", max_length=7)
+    price          = models.DecimalField(
+                                max_digits=6,
+                                decimal_places=2,
+                                verbose_name="precio"
+                            )
+    payment_date   = models.DateTimeField(verbose_name="fecha de pago", null=True)
     payment_status = models.BooleanField(verbose_name="estado de pago", default=False)
-    payment_date   = models.DateTimeField(verbose_name="fecha de pago")
     assistance     = models.BooleanField(verbose_name="asistencia", default=False)
     created        = models.DateTimeField(verbose_name="creado", auto_now_add=True)
     updated        = models.DateTimeField(verbose_name="actualizado", auto_now=True)
 
     def __str__(self):
-        return self.user_id.email
+        return f'{self.user_id.email} - {self.event_id.name}'
 
     class Meta:
-        ordering = ['-id']
-        verbose_name = 'Registros de eventos'
+        ordering = ['-event_id']
+        verbose_name = 'Registro de evento'
+        verbose_name_plural = 'Registros de eventos'
+
+        constraints = [
+            models.UniqueConstraint(fields=['user_id', 'event_id'], name="uq_user_event")
+        ]
     
 
 #####################################

@@ -14,12 +14,8 @@
                 </div>
                 <div class="col s12 m4">
                     <h5>Descripción</h5>
-                    <p>
-                        {{ event.description }}
-                    </p>
-                    
+                        {{ event.description | safe }}
                     <hr>
-
                     <h5>Fecha y Hora </h5>
                     {% if event.start_date < current_time %}
                         <i class="material-icons">check</i> Evento finalizado
@@ -70,14 +66,19 @@
                     {% else %}
                         <br>
                         <br>
-                        {% load material_form %}
-                            <form method="POST">
-                            {% csrf_token %}
-                                {% form %}
-                                    {% part form.inscription prefix %} <i class="fas fa-ticket-alt fa-1x prefix"></i> {% endpart %}
-                                {% endform %}
-                                <input type="submit" value="Registrarme" class="btn">
-                            </form>
+                        {% if already_registered %}
+                            <h5>Ya estas registrado en el evento.Te esperamos!</h5>
+                        {% else %}
+                            {% include 'core/_alerts.html' %}
+                            {% load material_form %}
+                                <form method="POST">
+                                {% csrf_token %}
+                                    {% form %}
+                                        {% part form.inscription prefix %} <i class="fas fa-ticket-alt fa-1x prefix"></i> {% endpart %}
+                                    {% endform %}
+                                    <input type="submit" value="Registrarme" class="btn">
+                                </form>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>

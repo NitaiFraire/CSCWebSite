@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.db.models import F
 
 from .forms import UserForm
 from .models import Profile, ControlNumber
@@ -13,17 +12,17 @@ def register_user(request):
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
             
-            ctrl_number = user_form.cleaned_data['control_number']
-            password1 = user_form.cleaned_data['password1']
-            first_name = user_form.cleaned_data['first_name']
-            first_last_name = user_form.cleaned_data['first_last_name']
-            last_name = user_form.cleaned_data['last_name']
-            email = user_form.cleaned_data['email']
-            phone = user_form.cleaned_data['phone']
-            birthday = user_form.cleaned_data['birthday']
-            gender = user_form.cleaned_data['gender']
-            semester = user_form.cleaned_data['semester']
-            username = user_form.cleaned_data['username']
+            ctrl_number = request.POST['control_number']
+            password1 = request.POST['password1']
+            first_name = request.POST['first_name']
+            first_last_name = request.POST['first_last_name']
+            last_name = request.POST['last_name']
+            email = request.POST['email']
+            phone = request.POST['phone']
+            birthday = request.POST['birthday']
+            gender = request.POST['gender']
+            semester = request.POST['semester']
+            username = request.POST['username']
 
             try:
                 u = User.objects.create_user(
@@ -33,7 +32,7 @@ def register_user(request):
                     first_name=first_name,
                     last_name=last_name
                 )
-
+                
                 profile = Profile.objects.create(user_id=u.id)
                 profile.phone=phone
                 profile.gender=gender
