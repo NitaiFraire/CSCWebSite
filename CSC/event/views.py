@@ -23,6 +23,10 @@ class EventListView(ListView):
     template_name = 'event/event_list.html'
     context_object_name = 'events'
 
+    def get_queryset(self):
+         qs = super().get_queryset()
+         return qs.exclude(pk=1)
+
 
 # class EventDetailView(DetailView):
 #     model = Detail
@@ -56,6 +60,7 @@ def event_detail(request, slug):
             inscription = form.cleaned_data['inscription']
             one_day = datetime.timedelta(days=1)
             date_limit = event.start_date - one_day
+            id_register = UserEvent.objects.filter(event_id=event.id).count()
 
             # parameters for the html template
             data = {
@@ -64,7 +69,8 @@ def event_detail(request, slug):
                 'hour': event.hour,
                 'event_description': event.description,
                 'user': request.user,
-                'total': event.price
+                'total': event.price,
+                'id_register': id_register + 1
             }
 
             if 'day_0' not in inscription:
@@ -74,7 +80,6 @@ def event_detail(request, slug):
             env = Environment(loader=FileSystemLoader('event/templates/event'))
             template = env.get_template('ticketTemplate.html')
             html = template.render(data)
-
             # create folder for pdfs
             if not os.path.exists(os.path.join(settings.MEDIA_ROOT, 'pdfs/')):
                 os.mkdir(os.path.join(settings.MEDIA_ROOT, 'pdfs/'))
@@ -87,21 +92,22 @@ def event_detail(request, slug):
                 'margin-left': '0',
             }
             pdf_path = os.path.join(settings.MEDIA_ROOT, f"pdfs/{request.user}-{slug}.pdf") 
-            pdfkit.from_string(html, pdf_path, options)  
+            pdfkit.from_string(html, os.path.join(settings.MEDIA_ROOT, f"pdfs/{request.user}-{slug}.pdf"), options=options)  
 
             # send email
 
             # Develpment
-            msg = EmailMessage(f'Registro {event.name}',
-                                '',
-                                'nfraire07@gmail.com',
-                                ['nfraire07@gmail.com'])
+            #msg = EmailMessage(f'Registro {event.name}',
+            #                    '',
+            #                    'nfraire07@gmail.com',
+            #                    ['nfraire07@gmail.com'])
 
             #production
-
+            msg = EmailMessage(f'Registro {event.name}',
+				'',
+				'nfraire07@gmail.com',
+				[str(request.user)])
             msg.attach_file(pdf_path, 'application/pdf')
-
-            
             try:
                 register = UserEvent.objects.create(user_id=current_user, event_id=event, price=data['total'])
                 register.day_assistance = inscription
@@ -111,9 +117,9 @@ def event_detail(request, slug):
                 # remove pdf file
                 os.remove(pdf_path)
 
-                message = '''Registro exitoso!. Revisa tu bandeja de entrada,
-                             se ha enviado un correo con las instrucciones de pago.'''
-                messages.add_message(request, messages.SUCCESS, message)
+                #message = '''Registro exitoso!. Revisa tu bandeja de entrada,
+                #             se ha enviado un correo con las instrucciones de pago.'''
+                #messages.add_message(request, messages.SUCCESS, message)
                 return redirect('events:detail', slug=slug)
             except:
                 messages.add_message(request, messages.ERROR, 'Error la registrar, intenta nuevamente.')

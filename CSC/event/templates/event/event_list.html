@@ -22,7 +22,7 @@
                                 <span class="card-title">{{ event.name }}</span>
                                 <i class="fas fa-calendar-day"></i> {{ event.start_date | date:'d/M/y' }}
                                 <i class="fas fa-clock"></i> {{ event.hour }}
-                                <p>{{ event.description | truncatewords:14 }}</p>
+                                <p>{{ event.description | truncatewords:14 | safe}}</p>
                             </div>
                         </div>
                     </div>
